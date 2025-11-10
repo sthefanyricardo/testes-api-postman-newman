@@ -19,9 +19,9 @@ O projeto está organizado para facilitar a navegação e execução:
 ├── .github/workflows/
 │   └── main.yml        # Configuração do pipeline CI/CD (GitHub Actions).
 ├── collections/
-│   └── (NomeDaColecao).json # Arquivos .json exportados do Postman com as requisições e testes.
+│   └── ServeRest.postman_collection.json # Arquivos .json exportados do Postman com as requisições e testes.
 ├── environments/
-│   └── (NomeDoAmbiente).json # Arquivos .json com variáveis de ambiente (URLs, tokens, etc.).
+│   └── serveRest_env.postman_environment.json # Arquivos .json com variáveis de ambiente (URLs, tokens, etc.).
 ├── reports/
 │   └── report.html     # Diretório para salvar os relatórios de execução local.
 └── README.md
@@ -57,9 +57,8 @@ Siga os passos para rodar a coleção de testes em sua máquina:
     npm install -g newman newman-reporter-htmlextra
     ```
 3.  **Execute a coleção de testes:**
-    * *Substitua o nome do arquivo da sua coleção e environment, se necessário.*
     ```bash
-    newman run ./collections/MinhaColecaoDeTestes.json -e ./environments/MeuAmbiente.json -r htmlextra --reporter-htmlextra-export ./reports/report.html
+    newman run collections/ServeRest.postman_collection.json -e environments/serveRest_env.postman_environment.json -r htmlextra --reporter-htmlextra-export ./reports/report.html
     ```
 4.  **Visualize o Relatório:**
     Abra o arquivo `reports/report.html` no seu navegador para ver os resultados detalhados.
