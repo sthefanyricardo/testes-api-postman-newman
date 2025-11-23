@@ -46,7 +46,7 @@ jobs:
             -r cli,htmlextra,html,csv,json \
             --reporter-htmlextra-export newman_test_artifacts/report-adm-htmlextra.html \
             --reporter-html-export newman_test_artifacts/report-adm-html.html \
-            --reporter-csv-includeBody newman_test_artifacts/report-adm.csv \
+            --reporter-csv-export newman_test_artifacts/report-adm.csv --reporter-csv-includeBody \
             --reporter-json-export newman_test_artifacts/report-adm.json
 
       - name: Run Newman - Serve Rest User
@@ -58,7 +58,7 @@ jobs:
             -r cli,htmlextra,html,csv,json \
             --reporter-htmlextra-export newman_test_artifacts/report-user-htmlextra.html \
             --reporter-html-export newman_test_artifacts/report-user-html.html \
-            --reporter-csv-includeBody newman_test_artifacts/report-user.csv \
+            --reporter-csv-export newman_test_artifacts/report-user.csv --reporter-csv-includeBody \
             --reporter-json-export newman_test_artifacts/report-user.json
 
       - name: Upload Report Artifact
