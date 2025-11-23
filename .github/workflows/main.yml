@@ -72,3 +72,10 @@ jobs:
         id: deployment
         if: ${{ steps.run_newman_adm.outcome == 'success' && steps.run_newman_user.outcome == 'success' }}
         uses: actions/deploy-pages@v4
+
+      # Mostrar a URL nos logs (sempre tenta, mesmo que o deploy tenha sido pulado)
+      - name: Show GitHub Pages URL (logs)
+        if: always()
+        run: |
+          echo "GitHub Pages URL: ${{ steps.deployment.outputs.page_url || 'DEPLOY_NOT_RUN_OR_FAILED' }}"
+          
