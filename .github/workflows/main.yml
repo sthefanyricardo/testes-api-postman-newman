@@ -4,7 +4,14 @@ on:
   push:
     branches:
       - main
-
+  # Permite execução manual via Actions > Workflows > Run workflow
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Branch ou Tag para execução (deixe vazio para usar a referência padrão)'
+        required: false
+        default: 'main'
+        
 jobs:
   newman:
     runs-on: ubuntu-latest
