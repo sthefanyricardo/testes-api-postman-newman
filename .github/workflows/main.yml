@@ -20,14 +20,19 @@ jobs:
         with:
           node-version: '24.11.1'
           cache: 'npm'
+      - run: npm ci
+      - run: npm test
 
       - name: Install Newman
+        if: always()
         run: |
           npm install -g newman
           npm install -g newman-reporter-htmlextra
 
       - name: Run Test
-        run: newman run collections/ServeRest.postman_collection.json -e environments/serveRest_env.postman_environment.json -r cli,htmlextra --reporter-htmlextra-export newman/report.html
+        run: | 
+          newman run collections/ServeRest_User.postman_collection.json -e environments/serveRest_env.postman_environment.json -r cli, html, htmlextra, csv, json
+          newman run collections/ServeRest_ADM.postman_collection.json -e environments/serveRest_env.postman_environment.json -r cli, html, htmlextra, csv, json
 
       - name: Upload Report Artifact
         if: always()
@@ -42,4 +47,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./newman
-          
