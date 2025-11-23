@@ -70,5 +70,5 @@ jobs:
 
       - name: Deploy to GitHub Pages
         id: deployment
-        if: ${{ steps.run-adm.outcome == 'success' && steps.run-user.outcome == 'success' }}
+        if: ${{ steps.run_newman_adm.outcome == 'success' && steps.run_newman_user.outcome == 'success' }}
         uses: actions/deploy-pages@v4
