@@ -23,16 +23,32 @@ jobs:
       - run: npm ci
       - run: npm test
 
-      - name: Install Newman
-        if: always()
+      # Install Newman and reporters (ou deixe em devDependencies e use npx)
+      - name: Install Newman and reporters
         run: |
           npm install -g newman
           npm install -g newman-reporter-htmlextra
+          # Se for usar outros reporters, instale-os aqui:
+          # npm install -g newman-reporter-html newman-reporter-csv
 
-      - name: Run Test
-        run: | 
-          newman run collections/ServeRest_User.postman_collection.json -e environments/serveRest_env.postman_environment.json -r cli, html, htmlextra, csv, json
-          newman run collections/ServeRest_ADM.postman_collection.json -e environments/serveRest_env.postman_environment.json -r cli, html, htmlextra, csv, json
+      - name: Prepare reports dir
+        run: mkdir -p newman
+
+      - name: Run Newman - ServeRest_User
+        run: |
+          newman run collections/ServeRest_User.postman_collection.json \
+            -e environments/serveRest_env.postman_environment.json \
+            -r cli,htmlextra,json \
+            --reporter-htmlextra-export newman/report-user.html \
+            --reporter-json-export newman/report-user.json || true
+
+      - name: Run Newman - ServeRest_ADM
+        run: |
+          newman run collections/ServeRest_ADM.postman_collection.json \
+            -e environments/serveRest_env.postman_environment.json \
+            -r cli,htmlextra,json \
+            --reporter-htmlextra-export newman/report-adm.html \
+            --reporter-json-export newman/report-adm.json || true
 
       - name: Upload Report Artifact
         if: always()
@@ -42,7 +58,7 @@ jobs:
           path: newman
 
       - name: Deploy to GitHub Pages
-        if: success()            # só deploya quando o job for bem-sucedido; remova se quiser sempre tentar
+        if: success()
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
