@@ -9,8 +9,12 @@ jobs:
   newman:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Needed to push to gh-pages branch
+      contents: read
       pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v5
 
@@ -22,9 +26,6 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: '24.11.1'
-          cache: 'npm'
-      - run: npm ci
-      - run: npm test
 
       # Install Newman and reporters
       - name: Install Newman and reporters
@@ -39,7 +40,7 @@ jobs:
         continue-on-error: true
         run: |
           newman run collections/serve_rest_adm.postman_collection.json \
-            -e environment/serve_rest.postman_environment.json \
+            -e environment/ServeRest.postman_environment.json \
             -r cli,htmlextra,json,csv,html \
             --reporter-htmlextra-export newman_test_artifacts/report-adm-htmlextra.html \
             --reporter-html-export newman_test_artifacts/report-adm-html.html \
@@ -50,7 +51,7 @@ jobs:
         continue-on-error: true
         run: |
           newman run collections/serve_rest_user.postman_collection.json \
-            -e environment/serve_rest.postman_environment.json \
+            -e environment/ServeRest.postman_environment.json \
             -r cli,htmlextra,json,csv,html \
             --reporter-htmlextra-export newman_test_artifacts/report-user-htmlextra.html \
             --reporter-html-export newman_test_artifacts/report-user-html.html \
@@ -64,9 +65,13 @@ jobs:
           name: Reports
           path: newman_test_artifacts
 
-      - name: Deploy to GitHub Pages
-        if: success()
-        uses: actions/deploy-pages@v4
+      - name: Upload to GitHub Pages
+        if: always()
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./newman_test_artifacts
+          path: newman_test_artifacts
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        if: always()
+        uses: actions/deploy-pages@v4
