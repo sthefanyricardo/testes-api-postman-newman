@@ -43,7 +43,7 @@ jobs:
         run: |
           newman run collections/serve_rest_adm.postman_collection.json \
             -e environment/serve_rest.postman_environment.json \
-            -r cli,htmlextra,json,csv,html \
+            -r cli,htmlextra,html,csv,json \
             --reporter-htmlextra-export newman_test_artifacts/report-adm-htmlextra.html \
             --reporter-html-export newman_test_artifacts/report-adm-html.html \
             --reporter-csv-includeBody newman_test_artifacts/report-adm.csv \
@@ -55,7 +55,7 @@ jobs:
         run: |
           newman run collections/serve_rest_user.postman_collection.json \
             -e environment/serve_rest.postman_environment.json \
-            -r cli,htmlextra,json,csv,html \
+            -r cli,htmlextra,html,csv,json \
             --reporter-htmlextra-export newman_test_artifacts/report-user-htmlextra.html \
             --reporter-html-export newman_test_artifacts/report-user-html.html \
             --reporter-csv-includeBody newman_test_artifacts/report-user.csv \
