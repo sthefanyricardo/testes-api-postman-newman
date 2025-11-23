@@ -1,4 +1,4 @@
-name: Newman Run
+name: Run the test collection of the Serve REST API with newman
 
 on:
   push:
@@ -14,6 +14,9 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
+      - name: Prepare reports dir
+        run: mkdir -p newman_test_artifacts
+
       # Configure Node.js environment
       - name: Install Node.js
         uses: actions/setup-node@v6
@@ -23,29 +26,26 @@ jobs:
       - run: npm ci
       - run: npm test
 
-      # Install Newman and reporters (ou deixe em devDependencies e use npx)
+      # Install Newman and reporters
       - name: Install Newman and reporters
         run: |
           npm install -g newman
           npm install -g newman-reporter-htmlextra
-          # Se for usar outros reporters, instale-os aqui:
+          # Se for usar outros reporters, instale-os a partir daqui:
           # npm install -g newman-reporter-html newman-reporter-csv
 
-      - name: Prepare reports dir
-        run: mkdir -p newman
-
-      - name: Run Newman - ServeRest_User
+      - name: Run Newman - Serve Rest User
         run: |
-          newman run collections/ServeRest_User.postman_collection.json \
-            -e environments/serveRest_env.postman_environment.json \
+          newman run collections/serve_rest_user.postman_collection.json \
+            -e environments/serve_rest.postman_environment.json.json \
             -r cli,htmlextra,json \
             --reporter-htmlextra-export newman/report-user.html \
             --reporter-json-export newman/report-user.json || true
 
-      - name: Run Newman - ServeRest_ADM
+      - name: Run Newman - Serve Rest ADM
         run: |
-          newman run collections/ServeRest_ADM.postman_collection.json \
-            -e environments/serveRest_env.postman_environment.json \
+          newman run collections/serve_rest_adm.postman_collection.json \
+            -e environments/serve_rest.postman_environment.json.json \
             -r cli,htmlextra,json \
             --reporter-htmlextra-export newman/report-adm.html \
             --reporter-json-export newman/report-adm.json || true
