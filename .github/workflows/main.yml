@@ -34,21 +34,27 @@ jobs:
           # Se for usar outros reporters, instale-os a partir daqui:
           # npm install -g newman-reporter-html newman-reporter-csv
 
-      - name: Run Newman - Serve Rest User
-        run: |
-          newman run collections/serve_rest_user.postman_collection.json \
-            -e environments/serve_rest.postman_environment.json.json \
-            -r cli,htmlextra,json \
-            --reporter-htmlextra-export newman_test_artifacts/report-user.html \
-            --reporter-json-export newman_test_artifacts/report-user.json || true
-
       - name: Run Newman - Serve Rest ADM
         run: |
           newman run collections/serve_rest_adm.postman_collection.json \
-            -e environments/serve_rest.postman_environment.json.json \
-            -r cli,htmlextra,json \
+            -e environment/serve_rest.postman_environment.json \
+            -r cli,htmlextra,json,csv,html \
+            --reporter-json-export newman_test_artifacts/report-adm.json \
+            --reporter-html-export newman_test_artifacts/report-adm.html \
+            --reporter-csv-export newman_test_artifacts/report-adm.csv \
             --reporter-htmlextra-export newman_test_artifacts/report-adm.html \
-            --reporter-json-export newman_test_artifacts/report-adm.json || true
+            --reporter-json-export newman_test_artifacts/report-adm.json
+            
+      - name: Run Newman - Serve Rest User
+        run: |
+          newman run collections/serve_rest_user.postman_collection.json \
+            -e environment/serve_rest.postman_environment.json \
+            -r cli,htmlextra,json,csv,html \
+            --reporter-json-export newman_test_artifacts/report-user.json \
+            --reporter-html-export newman_test_artifacts/report-user.html \
+            --reporter-csv-export newman_test_artifacts/report-user.csv \
+            --reporter-htmlextra-export newman_test_artifacts/report-user.html \
+            --reporter-json-export newman_test_artifacts/report-user.json
 
       - name: Upload Report Artifact
         if: always()
