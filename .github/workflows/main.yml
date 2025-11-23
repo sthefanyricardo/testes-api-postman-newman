@@ -10,14 +10,16 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write # Needed to push to gh-pages branch
+      pages: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      # Config environment
-      - name: Install Node
-        uses: actions/setup-node@v3.4.1
+      # Configure Node.js environment
+      - name: Install Node.js
+        uses: actions/setup-node@v6
         with:
-          node-version: '18'
+          node-version: '24.11.1'
+          cache: 'npm'
 
       - name: Install Newman
         run: |
@@ -28,13 +30,16 @@ jobs:
         run: newman run collections/ServeRest.postman_collection.json -e environments/serveRest_env.postman_environment.json -r cli,htmlextra --reporter-htmlextra-export newman/report.html
 
       - name: Upload Report Artifact
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: Reports
           path: newman
 
       - name: Deploy to GitHub Pages
+        if: success()            # só deploya quando o job for bem-sucedido; remova se quiser sempre tentar
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./newman
+          
