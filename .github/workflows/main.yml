@@ -39,27 +39,27 @@ jobs:
           newman run collections/serve_rest_user.postman_collection.json \
             -e environments/serve_rest.postman_environment.json.json \
             -r cli,htmlextra,json \
-            --reporter-htmlextra-export newman/report-user.html \
-            --reporter-json-export newman/report-user.json || true
+            --reporter-htmlextra-export newman_test_artifacts/report-user.html \
+            --reporter-json-export newman_test_artifacts/report-user.json || true
 
       - name: Run Newman - Serve Rest ADM
         run: |
           newman run collections/serve_rest_adm.postman_collection.json \
             -e environments/serve_rest.postman_environment.json.json \
             -r cli,htmlextra,json \
-            --reporter-htmlextra-export newman/report-adm.html \
-            --reporter-json-export newman/report-adm.json || true
+            --reporter-htmlextra-export newman_test_artifacts/report-adm.html \
+            --reporter-json-export newman_test_artifacts/report-adm.json || true
 
       - name: Upload Report Artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: Reports
-          path: newman
+          path: newman_test_artifacts
 
       - name: Deploy to GitHub Pages
         if: success()
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./newman
+          publish_dir: ./newman_test_artifacts
