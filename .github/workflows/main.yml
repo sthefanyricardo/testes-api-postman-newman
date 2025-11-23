@@ -32,28 +32,29 @@ jobs:
           npm install -g newman
           npm install -g newman-reporter-htmlextra
           # Se for usar outros reporters, instale-os a partir daqui:
-          # npm install -g newman-reporter-html newman-reporter-csv
+          npm install -g newman-reporter-csv
+          npm install -g newman-reporter-html
 
       - name: Run Newman - Serve Rest ADM
+        continue-on-error: true
         run: |
           newman run collections/serve_rest_adm.postman_collection.json \
             -e environment/serve_rest.postman_environment.json \
             -r cli,htmlextra,json,csv,html \
-            --reporter-json-export newman_test_artifacts/report-adm.json \
-            --reporter-html-export newman_test_artifacts/report-adm.html \
-            --reporter-csv-export newman_test_artifacts/report-adm.csv \
-            --reporter-htmlextra-export newman_test_artifacts/report-adm.html \
+            --reporter-htmlextra-export newman_test_artifacts/report-adm-htmlextra.html \
+            --reporter-html-export newman_test_artifacts/report-adm-html.html \
+            --reporter-csv-includeBody newman_test_artifacts/report-adm.csv \
             --reporter-json-export newman_test_artifacts/report-adm.json
-            
+
       - name: Run Newman - Serve Rest User
+        continue-on-error: true
         run: |
           newman run collections/serve_rest_user.postman_collection.json \
             -e environment/serve_rest.postman_environment.json \
             -r cli,htmlextra,json,csv,html \
-            --reporter-json-export newman_test_artifacts/report-user.json \
-            --reporter-html-export newman_test_artifacts/report-user.html \
-            --reporter-csv-export newman_test_artifacts/report-user.csv \
-            --reporter-htmlextra-export newman_test_artifacts/report-user.html \
+            --reporter-htmlextra-export newman_test_artifacts/report-user-htmlextra.html \
+            --reporter-html-export newman_test_artifacts/report-user-html.html \
+            --reporter-csv-includeBody newman_test_artifacts/report-user.csv \
             --reporter-json-export newman_test_artifacts/report-user.json
 
       - name: Upload Report Artifact
@@ -65,7 +66,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         if: success()
-        uses: peaceiris/actions-gh-pages@v3
+        uses: actions/deploy-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./newman_test_artifacts
