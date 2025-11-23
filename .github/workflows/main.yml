@@ -9,8 +9,13 @@ jobs:
   newman:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Needed to push to gh-pages branch
+      contents: read
       pages: write
+      id-token: write
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v5
 
@@ -33,6 +38,7 @@ jobs:
           npm install -g newman-reporter-html
 
       - name: Run Newman - Serve Rest ADM
+        id: run_newman_adm
         continue-on-error: true
         run: |
           newman run collections/serve_rest_adm.postman_collection.json \
@@ -44,6 +50,7 @@ jobs:
             --reporter-json-export newman_test_artifacts/report-adm.json
 
       - name: Run Newman - Serve Rest User
+        id: run_newman_user
         continue-on-error: true
         run: |
           newman run collections/serve_rest_user.postman_collection.json \
@@ -62,8 +69,6 @@ jobs:
           path: newman_test_artifacts
 
       - name: Deploy to GitHub Pages
-        if: success()
+        id: deployment
+        if: ${{ steps.run_newman_adm.outcome == 'success' && steps.run_newman_user.outcome == 'success' }}
         uses: actions/deploy-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./newman_test_artifacts
