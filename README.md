@@ -21,8 +21,6 @@ O projeto foi desenvolvido como parte do curso "[Dominando Postman: Do Teste Man
 - ✅ Implementar **pipeline CI/CD** com GitHub Actions
 - ✅ Publicar relatórios automaticamente no **GitHub Pages**
 
----
-
 ### API ServeRest
 
 Este projeto utiliza a [**ServeRest API**](https://serverest.dev/), uma API REST gratuita que simula uma loja virtual, desenvolvida por [Paulo Gonçalves](https://github.com/PauloGoncalvesBH) para servir como material de estudos.
@@ -59,7 +57,7 @@ testes-api-postman-newman/
 ```
 ---
 
-### Fluxo de Testes
+## Fluxo de Testes
 
 ```mermaid
 graph LR
@@ -78,7 +76,7 @@ graph LR
 
 ---
 
-### ☁️ Automação (Pipeline CI/CD)Pipeline CI/CD
+## ☁️ Automação (Pipeline CI/CD)Pipeline CI/CD
 
 O pipeline é executado automaticamente em cada `push` para a branch `main`:
 
@@ -112,6 +110,8 @@ O pipeline é executado automaticamente em cada `push` para a branch `main`:
 | [newman-reporter-csv](https://www.npmjs.com/package/newman-reporter-csv) | Latest | Relatórios em formato CSV |
 | [Postman](https://www.postman.com/) (Opcional) | Latest | Edição e visualização de coleções |
 
+---
+
 ## 🔧 Instalação
 
 ### 1. Clone o Repositório
@@ -134,7 +134,7 @@ npm --version
 
 ### 3. Instale o Newman e Reporters
 
-#### Instalação Global
+### Instalação Global
 
 ```bash
 npm install -g newman
@@ -143,7 +143,7 @@ npm install -g newman-reporter-html
 npm install -g newman-reporter-csv
 ```
 
-#### Instalação Local
+### Instalação Local
 
 ```bash
 npm init -y
@@ -162,7 +162,7 @@ newman --version
 
 ### Execução Local
 
-#### Executar Todas as Coleções
+### Executar Todas as Coleções
 
 **Coleção ADM (Administrador):**
 
@@ -218,6 +218,8 @@ newman run collections/serve_rest_adm.postman_collection.json \
   -r cli,htmlextra
 ```
 
+---
+
 ## Execução via GitHub Actions
 
 ### Automática
@@ -231,6 +233,8 @@ Os testes são executados automaticamente a cada `push` para a branch `main`.
 3. Clique em **"Run workflow"**
 4. Selecione a branch desejada
 5. Clique em **"Run workflow"**
+
+---
 
 ## Visualizar Relatórios
 
