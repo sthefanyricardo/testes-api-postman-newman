@@ -1,23 +1,27 @@
-# 🚀 Testes de API com Postman e Newman
+# 🎯 Testes de API com Postman e Newman
 
 [![GitHub Actions](https://github.com/sthefanyricardo/testes-api-postman-newman/actions/workflows/main.yml/badge.svg)](https://github.com/sthefanyricardo/testes-api-postman-newman/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D14.0.0-brightgreen)](https://nodejs.org)
 [![Postman](https://img.shields.io/badge/Postman-FF6C37?logo=postman&logoColor=white)](https://www.postman.com/)
 
+---
+
 ## 📝 Descrição
 
-Este repositório demonstra a implementação completa de **testes automatizados de API** utilizando **Postman** e **Newman**, com integração contínua via **GitHub Actions**.
+Este repositório demonstra a implementação completa de **testes automatizados de API** utilizando **Postman** e **Newman**, com integração contínua via **GitHub Actions** e deploy no **Github Pages**.
 
 ### Objetivo
 
-O projeto foi desenvolvido como parte do curso "[Dominando Postman: Do Teste Manual a Performance APIs](https://www.udemy.com/course/dominando-postman-2023-testando-e-automatizado-apis)" da Udemy, ministrado pela Priscila Caimi no Qualiters Club, e tem como objetivo:
+O projeto foi desenvolvido como parte do curso "[Dominando Postman: Do Teste Manual a Performance APIs](https://www.udemy.com/course/dominando-postman-2023-testando-e-automatizado-apis)" na Udemy e no Qualiters Club, ministrado pela Priscila Caimi no Qualiters Club, e tem como objetivo:
 
 - ✅ Demonstrar proficiência em **testes funcionais, automatizados e de performance** de APIs REST
 - ✅ Automatizar a execução de testes utilizando **Newman CLI**
-- ✅ Gerar **relatórios profissionais** com múltiplos formatos (HTML, CSV, JSON)
+- ✅ Gerar **relatórios profissionais** com múltiplos formatos (HTML, HTML-EXTRA, CSV, JSON)
 - ✅ Implementar **pipeline CI/CD** com GitHub Actions
 - ✅ Publicar relatórios automaticamente no **GitHub Pages**
+
+---
 
 ### API ServeRest
 
@@ -26,31 +30,34 @@ Este projeto utiliza a [**ServeRest API**](https://serverest.dev/), uma API REST
 **Funcionalidades testadas:**
 - 🔐 Autenticação e autorização de usuários
 - 👤 Gerenciamento de usuários (CRUD)
-- 📦 Gerenciamento de produtos
-- 🛒 Operações de carrinho de compras
-- ✔️ Validação de contratos (schema validation)
+- 📦 Gerenciamento de produtos (CRUD)
+- 🛒 Operações de carrinho de compras 
+- ✔️ Validação de contratos (json schema validation)
 - 🔄 Testes de integração entre endpoints
 
-## 🏗️ Arquitetura
+---
 
-### Estrutura do Projeto
+## ⚙️ Estrutura do Repositório
+
+O projeto está organizado para facilitar a navegação e execução:
 
 ```
 testes-api-postman-newman/
 │
 ├── .github/
 │   └── workflows/
-│       └── main.yml                    # Pipeline CI/CD (GitHub Actions)
+│       └── main.yml                              # Configuração do pipeline CI/CD (GitHub Actions).
 │
-├── collections/
+├── collections/                                  # Arquivos de collection.json 
 │   ├── serve_rest_adm.postman_collection.json    # Coleção de testes - Perfil Admin
 │   └── serve_rest_user.postman_collection.json   # Coleção de testes - Perfil Usuário
 │
-├── environment/
+├── environment/                                  # Arquivos .json com variáveis de ambiente (URLs).
 │   └── serve_rest.postman_environment.json       # Variáveis de ambiente
 │
 └── README.md
 ```
+---
 
 ### Fluxo de Testes
 
@@ -69,7 +76,9 @@ graph LR
     H --> I
 ```
 
-### Pipeline CI/CD
+---
+
+### ☁️ Automação (Pipeline CI/CD)Pipeline CI/CD
 
 O pipeline é executado automaticamente em cada `push` para a branch `main`:
 
@@ -82,6 +91,8 @@ O pipeline é executado automaticamente em cada `push` para a branch `main`:
 5. **Upload**: Armazenamento como artefatos do GitHub Actions
 6. **Deploy**: Publicação automática no GitHub Pages (quando testes passam)
 
+---
+
 ## 📦 Requisitos
 
 ### Requisitos de Sistema
@@ -90,7 +101,7 @@ O pipeline é executado automaticamente em cada `push` para a branch `main`:
 - **NPM**: v6.0.0 ou superior
 - **Sistema Operacional**: Windows, macOS ou Linux
 
-### Ferramentas e Tecnologias
+### 🛠️ Tecnologias e Ferramentas
 
 | Ferramenta | Versão Recomendada | Propósito |
 |------------|-------------------|-----------|
@@ -123,7 +134,7 @@ npm --version
 
 ### 3. Instale o Newman e Reporters
 
-#### Instalação Global (Recomendado)
+#### Instalação Global
 
 ```bash
 npm install -g newman
@@ -132,7 +143,7 @@ npm install -g newman-reporter-html
 npm install -g newman-reporter-csv
 ```
 
-#### Instalação Local (Opcional)
+#### Instalação Local
 
 ```bash
 npm init -y
@@ -144,6 +155,8 @@ npm install newman newman-reporter-htmlextra newman-reporter-html newman-reporte
 ```bash
 newman --version
 ```
+
+---
 
 ## ▶️ Como Executar
 
@@ -167,7 +180,7 @@ newman run collections/serve_rest_user.postman_collection.json \
   -r cli,htmlextra
 ```
 
-#### Executar com Múltiplos Relatórios
+### Executar com Múltiplos Relatórios
 
 ```bash
 # Criar diretório para relatórios
@@ -183,7 +196,7 @@ newman run collections/serve_rest_adm.postman_collection.json \
   --reporter-json-export newman_reports/report-adm.json
 ```
 
-#### Executar com Opções Avançadas
+### Executar com Opções Avançadas
 
 ```bash
 # Com número de iterações
@@ -205,13 +218,13 @@ newman run collections/serve_rest_adm.postman_collection.json \
   -r cli,htmlextra
 ```
 
-### Execução via GitHub Actions
+## Execução via GitHub Actions
 
-#### Automática
+### Automática
 
 Os testes são executados automaticamente a cada `push` para a branch `main`.
 
-#### Manual
+### Manual
 
 1. Acesse a aba **Actions** no GitHub
 2. Selecione o workflow **"Run the test collection of the Serve REST API with newman"**
@@ -219,9 +232,9 @@ Os testes são executados automaticamente a cada `push` para a branch `main`.
 4. Selecione a branch desejada
 5. Clique em **"Run workflow"**
 
-### Visualizar Relatórios
+## Visualizar Relatórios
 
-#### Relatórios Locais
+### Relatórios Locais
 
 Após a execução, abra os arquivos HTML no navegador:
 
@@ -233,16 +246,18 @@ open newman_reports/report-adm-htmlextra.html
 start newman_reports/report-adm-htmlextra.html
 ```
 
-#### Relatórios do GitHub Actions
+### Relatórios do GitHub Actions
 
 1. Acesse a aba **Actions**
 2. Selecione a execução desejada
 3. Na seção **Artifacts**, faça o download de **Reports**
 4. Extraia o arquivo ZIP e abra os relatórios HTML
 
-#### GitHub Pages
+### GitHub Pages
 
 Se os testes passarem, os relatórios são publicados automaticamente no GitHub Pages. Verifique a URL nos logs da execução ou acesse a seção **Environments** no repositório.
+
+---
 
 ## 🙏 Agradecimentos
 
