@@ -224,7 +224,7 @@ newman run collections/serve_rest_adm.postman_collection.json \
 
 ### Automática
 
-Os testes são executados automaticamente a cada `push` para a branch `main`.
+Os testes são executados automaticamente a cada `push` ou `pull request` para a branch `main`.
 
 ### Manual
 
