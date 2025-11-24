@@ -419,7 +419,7 @@ Contribuições são bem-vindas! Este projeto segue as melhores práticas de có
 2. **Clone seu Fork**
 
 ```bash
-git clone https://github.com/seu-usuario/testes-api-postman-newman.git
+git clone https://github.com/SEU_USUARIO/testes-api-postman-newman.git
 cd testes-api-postman-newman
 ```
 
@@ -531,8 +531,7 @@ SOFTWARE.
 **Sthefany Ricardo**
 
 - GitHub: [@sthefanyricardo](https://github.com/sthefanyricardo)
-- LinkedIn: [Adicione seu LinkedIn aqui]
-- Email: [Adicione seu email aqui]
+- Repositório: [testes-api-postman-newman](https://github.com/sthefanyricardo/testes-api-postman-newman)
 
 ---
 
