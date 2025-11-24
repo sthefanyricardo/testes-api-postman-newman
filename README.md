@@ -246,7 +246,7 @@ Se os testes passarem, os relatórios são publicados automaticamente no GitHub 
 
 ## 🙏 Agradecimentos
 
-- **[Priscila Caimi](https://www.linkedin.com/in/priscilacaimi/)** - Instrutora do curso no Qualiters Club
+- **[Priscila Caimi](https://github.com/pricaimiTech)** - Instrutora do curso no Qualiters Club
 - **[Paulo Gonçalves](https://github.com/PauloGoncalvesBH)** - Criador da ServeRest API
 - **[ServeRest](https://github.com/ServeRest/ServeRest)** - API REST para estudos de testes
 
