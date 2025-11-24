@@ -57,6 +57,19 @@ testes-api-postman-newman/
 ```
 ---
 
+## ☁️ Automação (Pipeline CI/CD)Pipeline CI/CD
+
+O pipeline é executado automaticamente em cada `push` ou `pull request` para a branch `main`:
+
+1. **Setup**: Configuração do ambiente Node.js
+2. **Install**: Instalação do Newman e reporters
+3. **Test**: Execução das coleções de teste
+   - Coleção ADM (administrador)
+   - Coleção User (usuário padrão)
+4. **Report**: Geração de múltiplos formatos de relatório
+5. **Upload**: Armazenamento como artefatos do GitHub Actions
+6. **Deploy**: Publicação automática no GitHub Pages (quando testes passam)
+
 ## Fluxo de Testes
 
 ```mermaid
@@ -73,21 +86,6 @@ graph LR
     G --> I
     H --> I
 ```
-
----
-
-## ☁️ Automação (Pipeline CI/CD)Pipeline CI/CD
-
-O pipeline é executado automaticamente em cada `push` ou `pull request` para a branch `main`:
-
-1. **Setup**: Configuração do ambiente Node.js
-2. **Install**: Instalação do Newman e reporters
-3. **Test**: Execução das coleções de teste
-   - Coleção ADM (administrador)
-   - Coleção User (usuário padrão)
-4. **Report**: Geração de múltiplos formatos de relatório
-5. **Upload**: Armazenamento como artefatos do GitHub Actions
-6. **Deploy**: Publicação automática no GitHub Pages (quando testes passam)
 
 ---
 
