@@ -103,12 +103,12 @@ O pipeline é executado automaticamente em cada `push` para a branch `main`:
 
 | Ferramenta | Versão Recomendada | Propósito |
 |------------|-------------------|-----------|
-| [Node.js](https://nodejs.org/) | ≥ 14.0.0 | Runtime JavaScript |
-| [Newman](https://www.npmjs.com/package/newman) | Latest | Executor de coleções Postman via CLI |
-| [newman-reporter-htmlextra](https://www.npmjs.com/package/newman-reporter-htmlextra) | Latest | Relatórios HTML detalhados |
-| [newman-reporter-html](https://www.npmjs.com/package/newman-reporter-html) | Latest | Relatórios HTML padrão |
-| [newman-reporter-csv](https://www.npmjs.com/package/newman-reporter-csv) | Latest | Relatórios em formato CSV |
-| [Postman](https://www.postman.com/) (Opcional) | Latest | Edição e visualização de coleções |
+| [Node.js](https://nodejs.org/) | ≥ 14.0.0 | Ambiente de execução e gerenciamento de dependências para Newman. |
+| [Newman](https://www.npmjs.com/package/newman) | Latest | Executor de linha de comando para as coleções do Postman, incluindo a geração de relatorios. |
+| [newman-reporter-htmlextra](https://www.npmjs.com/package/newman-reporter-htmlextra) | Latest | Geração de relatórios HTML detalhados e amigáveis. |
+| [newman-reporter-html](https://www.npmjs.com/package/newman-reporter-html) | Latest | Geração de relatórios HTML padrão. |
+| [newman-reporter-csv](https://www.npmjs.com/package/newman-reporter-csv) | Latest | Geração de relatórios em formato CSV |
+| [Postman](https://www.postman.com/) (Opcional) | Latest | Criação e organização das coleções de requisições, variáveis de ambiente e scripts de teste (com JavaScript). |
 
 ---
 
