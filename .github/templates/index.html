@@ -94,15 +94,9 @@
       </div>
     </div>
     
-    <div class="timestamp" id="timestamp">
-      <!-- Timestamp será inserido via JavaScript -->
+    <div class="timestamp">
+      🕒 Generated: {{TIMESTAMP}}
     </div>
   </div>
-  
-  <script>
-    // Adiciona timestamp dinâmico
-    document.getElementById('timestamp').textContent = 
-      '🕒 Generated: ' + new Date().toISOString().replace('T', ' ').substring(0, 19) + ' UTC';
-  </script>
 </body>
 </html>
