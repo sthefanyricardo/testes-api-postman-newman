@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
+
   # Permite execução manual via Actions > Workflows > Run workflow
   workflow_dispatch:
     inputs:
@@ -69,6 +73,9 @@ jobs:
       - name: Generate index.html for GitHub Pages
         run: |
           cp .github/templates/index.html newman_test_artifacts/index.html
+          # Usa a data/hora atual do runner
+          TIMESTAMP=$(date -u +'%Y-%m-%d %H:%M:%S UTC')
+          sed -i "s/{{TIMESTAMP}}/$TIMESTAMP/g" newman_test_artifacts/index.html
           
       - name: Upload Report Artifact
         if: always()
