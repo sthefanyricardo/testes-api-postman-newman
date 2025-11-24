@@ -75,6 +75,12 @@ jobs:
           name: Reports
           path: newman_test_artifacts
 
+      - name: Upload Pages artifact (for deploy-pages)
+        if: ${{ steps.run_newman_adm.outcome == 'success' && steps.run_newman_user.outcome == 'success' }}
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: newman_test_artifacts
+    
       - name: Deploy to GitHub Pages
         id: deployment
         if: ${{ steps.run_newman_adm.outcome == 'success' && steps.run_newman_user.outcome == 'success' }}
