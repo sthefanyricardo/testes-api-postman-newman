@@ -13,17 +13,15 @@ on:
         default: 'main'
         
 jobs:
-  newman:
+  # Job 1: Executar os testes com Newman
+  run-job-newman:
     runs-on: ubuntu-latest
+    
     permissions:
       contents: read
-      pages: write
-      id-token: write
-    # Deploy to the github-pages environment
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
+    
       - uses: actions/checkout@v5
 
       - name: Prepare reports dir
@@ -75,20 +73,45 @@ jobs:
           name: Reports
           path: newman_test_artifacts
 
-      - name: Upload Pages artifact (for deploy-pages)
-        if: ${{ steps.run_newman_adm.outcome == 'success' && steps.run_newman_user.outcome == 'success' }}
+# Job 2: Deploy para GitHub Pages
+  deploy-github-pages:
+    # Este job só executa se o job 'newman' for bem-sucedido
+    needs: run-job-newman
+    
+    runs-on: ubuntu-latest
+    
+    # Permissões necessárias para deploy no GitHub Pages
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+      
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+  
+    steps:
+    
+      # Download do artefato gerado pelo job anterior
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: Reports
+          path: newman_test_artifacts
+
+      # Upload para GitHub Pages
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: newman_test_artifacts
     
+      # Deploy no GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
-        if: ${{ steps.run_newman_adm.outcome == 'success' && steps.run_newman_user.outcome == 'success' }}
         uses: actions/deploy-pages@v4
 
-      # Mostrar a URL nos logs (sempre tenta, mesmo que o deploy tenha sido pulado)
-      - name: Show GitHub Pages URL (logs)
-        if: always()
+      # Mostrar a URL nos logs
+      - name: Show GitHub Pages URL
         run: |
-          echo "GitHub Pages URL: ${{ steps.deployment.outputs.page_url || 'DEPLOY_NOT_RUN_OR_FAILED' }}"
-          
+          echo "GitHub Pages URL: ${{ steps.deployment.outputs.page_url }}"
