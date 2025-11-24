@@ -109,6 +109,7 @@ O pipeline é executado automaticamente em cada `push` ou `pull request` para a 
 | [newman-reporter-html](https://www.npmjs.com/package/newman-reporter-html) | Latest | Geração de relatórios HTML padrão. |
 | [newman-reporter-csv](https://www.npmjs.com/package/newman-reporter-csv) | Latest | Geração de relatórios em formato CSV |
 | [Postman](https://www.postman.com/) | Latest | Criação e organização das coleções de requisições, variáveis de ambiente e scripts de teste (com JavaScript). |
+| [Collections no Postman](https://web.postman.co/workspace/bd80135c-7abe-4289-a106-935b4fb06bb9) | Latest | Coleções de requisições, variáveis de ambiente e scripts de teste (com JavaScript). |
 
 ---
 
