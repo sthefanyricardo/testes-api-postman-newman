@@ -78,7 +78,7 @@ graph LR
 
 ## ☁️ Automação (Pipeline CI/CD)Pipeline CI/CD
 
-O pipeline é executado automaticamente em cada `push` para a branch `main`:
+O pipeline é executado automaticamente em cada `push` ou `pull request` para a branch `main`:
 
 1. **Setup**: Configuração do ambiente Node.js
 2. **Install**: Instalação do Newman e reporters
