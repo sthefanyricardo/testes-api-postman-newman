@@ -136,6 +136,13 @@ testes-api-postman-newman/
 
 ## 🗺️ Roadmap
 
+### Concluído
+
+- [x] Cobertura completa de endpoints nas Collections do Postman
+- [x] Múltiplos formatos de relatório com o Newman
+- [x] Pipeline CI/CD com GitHub Actions
+- [x] Deploy automático no GitHub Pages
+
 ### Em Desenvolvimento
 
 - [ ] Desenvolvimento de testes automatizados de API com o Robot Framework
@@ -153,13 +160,6 @@ testes-api-postman-newman/
 - [ ] Dashboard de métricas em tempo real
 - [ ] Testes de segurança com OWASP ZAP
 - [ ] Testes de contrato com Pact ou Python
-
-### Concluído
-
-- [x] Cobertura completa de endpoints nas Collections do Postman
-- [x] Múltiplos formatos de relatório com o Newman
-- [x] Pipeline CI/CD com GitHub Actions
-- [x] Deploy automático no GitHub Pages
 
 --- 
 
