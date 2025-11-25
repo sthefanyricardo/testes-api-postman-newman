@@ -100,6 +100,69 @@ testes-api-postman-newman/
 ```
 ---
 
+---
+
+## 🧪 Cobertura de Testes
+
+### Coleção API ServeRest ADM
+
+| Endpoint | Métodos | Cenários | Testes |
+|----------|---------|----------|--------|
+| `/login` | POST | 2 | 8+ |
+| `/usuarios` | GET, POST, PUT, DELETE | 5+ | 20+ |
+| `/produtos` | GET, POST, PUT, DELETE | 5+ | 20+ |
+| `/carrinhos` | GET, POST, DELETE | 3+ | 12+ |
+
+### Coleção API ServeRest User
+
+| Endpoint | Métodos | Cenários | Testes |
+|----------|---------|----------|--------|
+| `/login` | POST | 2 | 8+ |
+| `/usuarios` | GET, POST, PUT | 3+ | 12+ |
+| `/produtos` | GET | 2+ | 8+ |
+| `/carrinhos` | GET, POST, DELETE | 3+ | 12+ |
+
+### Tipos de Validações
+
+- ✅ Status codes (200, 201, 400, 401, 404, etc.)
+- ✅ Headers (Content-Type, Authorization, etc.)
+- ✅ Response body structure
+- ✅ JSON Schema validation
+- ✅ Business logic validation
+- ✅ Error messages
+- ✅ Response time
+
+---
+
+## 🗺️ Roadmap
+
+### Em Desenvolvimento
+
+- [ ] Desenvolvimento de testes automatizados de API com o Robot Framework
+- [ ] Cobertura completa dos testes cenarios positivos, negativos e alternativos com o Robot Framework
+- [ ] Testes de contrato com validação de JSON Schema no Robot Framework
+- [ ] Dashboard de métricas em tempo real
+- [ ] Pipeline CI/CD com GitHub Actions
+- [ ] Deploy automático no GitHub Pages
+- [ ] Testes de contrato com Python ou Pact
+
+### Planejado
+
+- [ ] Testes de carga e stress com K6
+- [ ] Integração com ferramentas de monitoramento
+- [ ] Dashboard de métricas em tempo real
+- [ ] Testes de segurança com OWASP ZAP
+- [ ] Testes de contrato com Pact ou Python
+
+### Concluído
+
+- [x] Cobertura completa de endpoints nas Collections do Postman
+- [x] Múltiplos formatos de relatório com o Newman
+- [x] Pipeline CI/CD com GitHub Actions
+- [x] Deploy automático no GitHub Pages
+
+--- 
+
 ## ☁️ Pipeline CI/CD
 
 O arquivo `.github/workflows/main.yml` contém toda a configuração do pipeline. O pipeline é executado automaticamente em cada `push` ou `pull request` para a branch `main`. 
@@ -309,11 +372,21 @@ Se os testes passarem, os relatórios são publicados automaticamente no GitHub 
 
 ---
 
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+---
+
 ## 🙏 Agradecimentos
 
-- **[Priscila Caimi](https://github.com/pricaimiTech)** - Instrutora do curso no Qualiters Club
-- **[Paulo Gonçalves](https://github.com/PauloGoncalvesBH)** - Criador da ServeRest API
-- **[ServeRest](https://github.com/ServeRest/ServeRest)** - API REST para estudos de testes
+Agradecimentos especiais a:
+
+- **[Priscila Caimi](https://github.com/pricaimiTech)** - Instrutora do curso no Qualiters Club, pela excelente didática e conteúdo
+- **[Paulo Gonçalves](https://github.com/PauloGoncalvesBH)** - Criador da ServeRest API, pela ferramenta educacional incrível
+- **[ServeRest](https://github.com/ServeRest/ServeRest)** - Comunidade open source e documentação excelente
+- **[Postman](https://www.postman.com/)** - Pela plataforma robusta de testes de API
+- **[Newman Team](https://github.com/postmanlabs/newman)** - Pelo executor CLI poderoso
 
 ---
 
@@ -328,18 +401,30 @@ Se os testes passarem, os relatórios são publicados automaticamente no GitHub 
 
 ## 🔗 Links Úteis
 
+### Documentação
+
 - [Documentação do Postman](https://learning.postman.com/docs/getting-started/introduction/)
 - [Documentação do Newman](https://github.com/postmanlabs/newman)
 - [GitHub Actions Documentation](https://docs.github.com/en/actions)
+- [ServeRest API Docs](https://serverest.dev)
+
+### Cursos
+
 - [Curso na Udemy](https://www.udemy.com/course/dominando-postman-2023-testando-e-automatizado-apis)
 - [Curso no Qualiters Club](https://priscilacaimi.com/estude-comigo/)
-- [ServeRest API](https://serverest.dev)
+
+### Comunidade
+
+- [Postman Community](https://community.postman.com/)
+- [ServeRest GitHub](https://github.com/ServeRest/ServeRest)
 
 ---
 
 <div align="center">
 
-**⭐ Se você gostou deste projeto e/ou ele foi útil para você, considere dar uma estrela!**
+**⭐ Se este projeto foi útil para você, considere dar uma estrela!**
+
+**Desenvolvido com ❤️ por [Sthefany Ricardo](https://github.com/sthefanyricardo)**
 
 **[⬆ Voltar ao topo](#-testes-de-api-com-postman-e-newman)**
 
