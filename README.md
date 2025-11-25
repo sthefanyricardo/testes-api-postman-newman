@@ -225,10 +225,21 @@ graph LR
 
 ### Requisitos de Sistema
 
-- **Node.js**: v14.0.0 ou superior
-- **NPM**: v6.0.0 ou superior
 - **Sistema Operacional**: Windows, macOS ou Linux
-  
+- **Node.js**: v14.0.0 ou superior (Baixe e instale o Node.js em [nodejs.org](https://nodejs.org/).)
+- **NPM**: v6.0.0 ou superior
+- **Git**: Para clonar o repositório
+
+### Verificar Instalações
+
+```bash
+node --version
+
+npm --version
+
+git --version
+```
+
 ---
 
 ## 🔧 Instalação
@@ -236,7 +247,10 @@ graph LR
 ### 1. Clone o Repositório
 
 ```bash
+# comando git
 git clone https://github.com/sthefanyricardo/testes-api-postman-newman.git
+
+# pasta do projeto
 cd testes-api-postman-newman
 ```
 
@@ -248,6 +262,7 @@ Verifique a instalação:
 
 ```bash
 node --version
+
 npm --version
 ```
 
@@ -255,10 +270,16 @@ npm --version
 
 ### Instalação Global
 
+**newman**:
 ```bash
+# newman
 npm install -g newman
+
+# report newman
 npm install -g newman-reporter-htmlextra
+
 npm install -g newman-reporter-html
+
 npm install -g newman-reporter-csv
 ```
 
@@ -266,7 +287,12 @@ npm install -g newman-reporter-csv
 
 ```bash
 npm init -y
-npm install newman newman-reporter-htmlextra newman-reporter-html newman-reporter-csv
+
+# newman
+npm install newman
+
+# report newman
+npm install newman-reporter-htmlextra newman-reporter-html newman-reporter-csv
 ```
 
 ### 4. Verifique a Instalação
