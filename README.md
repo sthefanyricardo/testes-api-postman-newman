@@ -17,7 +17,7 @@
 - [Pipeline CI/CD](#-pipeline-cicd)
 - [Pré-requisitos](#-pré-requisitos)
 - [Instalação](#-instalação)
-- [Como executar](#-como-executar)
+- [Como Executar](#-como-executar)
 - [Relatórios](#-relatórios)
 - [Licença](#-licença)
 - [Agradecimentos](#-agradecimentos)
@@ -323,7 +323,7 @@ newman --version
 
 ---
 
-## ▶️ Como executar
+## ▶️ Como Executar
 
 ### Execução Local
 
@@ -448,7 +448,7 @@ Agradecimentos especiais a:
 
 ## 📞 Contato
 
-**Sthefany Ricardo**
+**Sthefany Albuquerque Ricardo**
 
 - GitHub: [@sthefanyricardo](https://github.com/sthefanyricardo)
 - Linkedin: [@sthefanyricardo](https://www.linkedin.com/in/sthefanyricardo/)
