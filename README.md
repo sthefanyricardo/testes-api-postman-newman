@@ -100,37 +100,38 @@ testes-api-postman-newman/
 ```
 ---
 
----
-
 ## 🧪 Cobertura de Testes
 
 ### Coleção API ServeRest ADM
 
 | Endpoint | Métodos | Cenários | Testes |
 |----------|---------|----------|--------|
-| `/login` | POST | 2 | 8+ |
-| `/usuarios` | GET, POST, PUT, DELETE | 5+ | 20+ |
-| `/produtos` | GET, POST, PUT, DELETE | 5+ | 20+ |
-| `/carrinhos` | GET, POST, DELETE | 3+ | 12+ |
+| `/login` | POST | - | - |
+| `/usuarios` | GET, POST | - |  - |
+| `/usuarios/{_id}` | GET, PUT, DELETE | - | - |
+| `/produtos` | GET, POST, PUT, DELETE | - | - |
+| `/carrinhos` | GET, POST, DELETE | - | - |
 
 ### Coleção API ServeRest User
 
 | Endpoint | Métodos | Cenários | Testes |
 |----------|---------|----------|--------|
-| `/login` | POST | 2 | 8+ |
-| `/usuarios` | GET, POST, PUT | 3+ | 12+ |
-| `/produtos` | GET | 2+ | 8+ |
-| `/carrinhos` | GET, POST, DELETE | 3+ | 12+ |
+| `/login` | POST | - | - |
+| `/usuarios` | GET, POST, PUT | - | - |
+| `/produtos` | GET | - | - |
+| `/carrinhos` | GET, POST, DELETE | - | - |
 
 ### Tipos de Validações
 
-- ✅ Status codes (200, 201, 400, 401, 404, etc.)
-- ✅ Headers (Content-Type, Authorization, etc.)
-- ✅ Response body structure
-- ✅ JSON Schema validation
-- ✅ Business logic validation
-- ✅ Error messages
-- ✅ Response time
+- ✅ Status codes (200, 201, 400, 401, 404 e etc.)
+- ✅ Headers (Authorization, Content-Type, Accept e etc.)
+- ✅ Estrutura do corpo de resposta
+- ✅ Validação de JSON Schema
+- ✅ Validação de lógica de negócios
+- ✅ Os dados retornados na resposta das requisições
+- ✅ As mensagens de sucesso retornadas nas respostas das requisições
+- ✅ As mensagens de erro retornadas nas respostas das requisições
+- ✅ O tempo de resposta
 
 ---
 
