@@ -7,11 +7,11 @@
 
 ---
 
-## 📝 Descrição
+## 🎓 Sobre o Projeto
 
 Este repositório demonstra a implementação completa de **testes automatizados de API** utilizando **Postman** e **Newman**, com integração contínua via **GitHub Actions** e deploy no **Github Pages**.
 
-### Objetivo
+### 📝 Objetivo
 
 O projeto foi desenvolvido como parte do curso "[Dominando Postman: Do Teste Manual a Performance APIs](https://www.udemy.com/course/dominando-postman-2023-testando-e-automatizado-apis)" na Udemy e no Qualiters Club, ministrado pela Priscila Caimi no Qualiters Club, e tem como objetivo:
 
@@ -20,22 +20,63 @@ O projeto foi desenvolvido como parte do curso "[Dominando Postman: Do Teste Man
 - ✅ Gerar **relatórios profissionais** com múltiplos formatos (HTML, HTML-EXTRA, CSV, JSON)
 - ✅ Implementar **pipeline CI/CD** com GitHub Actions
 - ✅ Publicar relatórios automaticamente no **GitHub Pages**
+- ✅ Aplicar boas práticas de QA e DevOps
 
 ### API ServeRest
 
-Este projeto utiliza a [**ServeRest API**](https://serverest.dev/), uma API REST gratuita que simula uma loja virtual, desenvolvida por [Paulo Gonçalves](https://github.com/PauloGoncalvesBH) para servir como material de estudos.
+Este projeto utiliza a [**ServeRest API**](https://serverest.dev/), uma API REST gratuita que simula uma loja virtual, desenvolvida por [Paulo Gonçalves](https://github.com/PauloGoncalvesBH) especificamente para servir como material de estudos em testes de API.
 
-**Funcionalidades testadas:**
-- 🔐 Autenticação e autorização de usuários
-- 👤 Gerenciamento de usuários (CRUD)
-- 📦 Gerenciamento de produtos (CRUD)
-- 🛒 Operações de carrinho de compras 
-- ✔️ Validação de contratos (json schema validation)
-- 🔄 Testes de integração entre endpoints
+#### Endpoints testados:
+- 🔐 `/login` - Autenticação e autorização de usuários
+- 👤 `/usuarios` e `/usuarios/{_id}` - Gerenciamento de usuários (CRUD)
+- 📦 `/produtos` e `/produtos/{_id}` - Gerenciamento de produtos (CRUD)
+- 🛒 `/carrinhos`, `/carrinhos/{_id}`, `/carrinhos/concluir-compra` e `/carrinhos/cancelar-compra` - Operações de carrinho de compras 
 
 ---
 
-## ⚙️ Estrutura do Repositório
+## ✨ Funcionalidades
+
+### Tipos de Testes Implementados
+
+- **Testes Funcionais**: Validação de endpoints, status codes, headers e payloads
+- **Testes de Contrato**: Validação de JSON schema com a biblioteca Ajv
+- **Testes Negativos**: Validação de cenários de erro
+- **Testes de Segurança**: Validação de autenticação e autorização
+- **Testes de Integração**: Fluxos completos entre múltiplos endpoints
+- **Testes de Performance**: Medição de tempo de resposta
+
+### Recursos Técnicos
+
+- 🔄 **Automação Completa**: Execução via CLI e CI/CD
+- 📊 **Múltiplos Formatos de Relatório**: HTML, HTML Extra, CSV, JSON
+- 🌐 **Deploy Automático**: Publicação de relatórios no GitHub Pages
+- 🔍 **Variáveis de Ambiente**: Gestão de configurações por ambiente
+- 📝 **Documentação Viva**: Collections como documentação executável
+
+---
+
+### 🛠️ Tecnologias e Ferramentas
+
+### Principais
+
+| Ferramenta | Versão | Propósito |
+|------------|-------------------|-----------|
+| [Node.js](https://nodejs.org/) | ≥14.0.0 | Ambiente de execução e gerenciamento de dependências para Newman. |
+| [Newman](https://www.npmjs.com/package/newman) | Latest | Executor de linha de comando para as coleções do Postman, incluindo a geração de relatorios. |
+| [Postman](https://www.postman.com/) | Latest | Criação e organização das coleções de requisições, variáveis de ambiente e scripts de teste (com JavaScript). |
+| [Collections no Postman](https://web.postman.co/workspace/bd80135c-7abe-4289-a106-935b4fb06bb9) | - | Coleções de requisições, variáveis de ambiente e scripts de teste (com JavaScript). |
+| [GitHub Actions](https://github.com/features/actions) | - | Pipelines de CI/CD |
+
+### Reports / Relatórios
+| Ferramenta | Versão | Propósito |
+|------------|-------------------|-----------|
+| [newman-reporter-htmlextra](https://www.npmjs.com/package/newman-reporter-htmlextra) | Latest | Geração de relatórios HTML detalhados e amigáveis. |
+| [newman-reporter-html](https://www.npmjs.com/package/newman-reporter-html) | Latest | Geração de relatórios HTML padrão. |
+| [newman-reporter-csv](https://www.npmjs.com/package/newman-reporter-csv) | Latest | Geração de relatórios em formato CSV |
+
+---
+
+## 📁 Estrutura do Projeto / Repositório
 
 O projeto está organizado para facilitar a navegação e execução:
 
@@ -45,6 +86,8 @@ testes-api-postman-newman/
 ├── .github/
 │   └── workflows/
 │       └── main.yml                              # Configuração do pipeline CI/CD (GitHub Actions).
+│   └── templates/
+│       └── index.html                              # Configuração da página index para o deploy no GitHUb Pages
 │
 ├── collections/                                  # Arquivos de collection.json 
 │   ├── serve_rest_adm.postman_collection.json    # Coleção de testes - Perfil Admin
@@ -57,10 +100,11 @@ testes-api-postman-newman/
 ```
 ---
 
-## ☁️ Automação (Pipeline CI/CD)Pipeline CI/CD
+## ☁️ Pipeline CI/CD
 
-O pipeline é executado automaticamente em cada `push` ou `pull request` para a branch `main`:
+O arquivo `.github/workflows/main.yml` contém toda a configuração do pipeline. O pipeline é executado automaticamente em cada `push` ou `pull request` para a branch `main`. 
 
+#### Etapas do Pipeline
 1. **Setup**: Configuração do ambiente Node.js
 2. **Install**: Instalação do Newman e reporters
 3. **Test**: Execução das coleções de teste
@@ -70,7 +114,7 @@ O pipeline é executado automaticamente em cada `push` ou `pull request` para a 
 5. **Upload**: Armazenamento como artefatos do GitHub Actions
 6. **Deploy**: Publicação automática no GitHub Pages (quando testes passam)
 
-## Fluxo de Testes
+### Fluxo de Execução dos Testes
 
 ```mermaid
 graph LR
@@ -87,6 +131,21 @@ graph LR
     H --> I
 ```
 
+### Fluxo de Execução do Pipeline de CI/CD
+
+```mermaid
+graph LR
+    A[Push/PR on branch Main] --> B[Pipeline - GitHub Actions]
+    B --> C[Install Node.js]
+    C --> D[Install Newman]
+    D --> E[Run Tests ADM]
+    E --> F[Run Tests User]
+    F --> G[Generate Reports]
+    G --> H{Tests Passed?}
+    H -->|Yes| I[Deploy to GitHub Pages]
+    H -->|No| J[Upload Artifacts]
+```
+
 ---
 
 ## 📦 Requisitos
@@ -96,19 +155,7 @@ graph LR
 - **Node.js**: v14.0.0 ou superior
 - **NPM**: v6.0.0 ou superior
 - **Sistema Operacional**: Windows, macOS ou Linux
-
-### 🛠️ Tecnologias e Ferramentas
-
-| Ferramenta | Versão Recomendada | Propósito |
-|------------|-------------------|-----------|
-| [Node.js](https://nodejs.org/) | ≥ 14.0.0 | Ambiente de execução e gerenciamento de dependências para Newman. |
-| [Newman](https://www.npmjs.com/package/newman) | Latest | Executor de linha de comando para as coleções do Postman, incluindo a geração de relatorios. |
-| [newman-reporter-htmlextra](https://www.npmjs.com/package/newman-reporter-htmlextra) | Latest | Geração de relatórios HTML detalhados e amigáveis. |
-| [newman-reporter-html](https://www.npmjs.com/package/newman-reporter-html) | Latest | Geração de relatórios HTML padrão. |
-| [newman-reporter-csv](https://www.npmjs.com/package/newman-reporter-csv) | Latest | Geração de relatórios em formato CSV |
-| [Postman](https://www.postman.com/) | Latest | Criação e organização das coleções de requisições, variáveis de ambiente e scripts de teste (com JavaScript). |
-| [Collections no Postman](https://web.postman.co/workspace/bd80135c-7abe-4289-a106-935b4fb06bb9) | Latest | Coleções de requisições, variáveis de ambiente e scripts de teste (com JavaScript). |
-
+  
 ---
 
 ## 🔧 Instalação
