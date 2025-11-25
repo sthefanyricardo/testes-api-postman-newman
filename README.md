@@ -109,17 +109,26 @@ testes-api-postman-newman/
 | `/login` | POST | - | - |
 | `/usuarios` | GET, POST | - |  - |
 | `/usuarios/{_id}` | GET, PUT, DELETE | - | - |
-| `/produtos` | GET, POST, PUT, DELETE | - | - |
-| `/carrinhos` | GET, POST, DELETE | - | - |
+| `/produtos` | GET, POST | - | - |
+| `/produtos/{_id}` | GET, PUT, DELETE | - | - |
+| `/carrinhos` | GET, POST | - | - |
+| `/carrinhos/{_id}` | GET | - | - |
+| `/carrinhos/concluir-compra` | DELETE | - | - |
+| `/carrinhos/cancelar-compraa` | DELETE | - | - |
 
 ### Coleção API ServeRest User
 
 | Endpoint | Métodos | Cenários | Testes |
 |----------|---------|----------|--------|
 | `/login` | POST | - | - |
-| `/usuarios` | GET, POST, PUT | - | - |
+| `/usuarios` | GET, POST | - |  - |
+| `/usuarios/{_id}` | GET, PUT, DELETE | - | - |
 | `/produtos` | GET | - | - |
-| `/carrinhos` | GET, POST, DELETE | - | - |
+| `/produtos/{_id}` | GET | - | - |
+| `/carrinhos` | GET, POST | - | - |
+| `/carrinhos/{_id}` | GET | - | - |
+| `/carrinhos/concluir-compra` | DELETE | - | - |
+| `/carrinhos/cancelar-compraa` | DELETE | - | - |
 
 ### Tipos de Validações
 
