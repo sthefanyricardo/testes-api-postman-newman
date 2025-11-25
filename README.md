@@ -6,6 +6,24 @@
 [![Postman](https://img.shields.io/badge/Postman-FF6C37?logo=postman&logoColor=white)](https://www.postman.com/)
 
 ---
+## 📋 Índice
+
+- [Sobre o Projeto](#-sobre-o-projeto)
+- [Funcionalidades](#-funcionalidades)
+- [Tecnologias e Ferramentas](#-tecnologias-e-ferramentas)
+- [Estrutura do Projeto](#-estrutura-do-projeto)
+- [Cobertura de Testes](#-cobertura-de-testes)
+- [Roadmap](#-roadmap)
+- [Pipeline CI/CD](#-pipeline-cicd)
+- [Pré-requisitos](#-pré-requisitos)
+- [Instalação](#-instalação)
+- [Como executar](#-como-executar)
+- [Relatórios](#-relatórios)
+- [Licença](#-licença)
+- [Agradecimentos](#-agradecimentos)
+- [Contato](#-contato)
+
+---
 
 ## 🎓 Sobre o Projeto
 
@@ -55,7 +73,7 @@ Este projeto utiliza a [**ServeRest API**](https://serverest.dev/), uma API REST
 
 ---
 
-### 🛠️ Tecnologias e Ferramentas
+## 🛠️ Tecnologias e Ferramentas
 
 ### Principais
 
@@ -76,7 +94,7 @@ Este projeto utiliza a [**ServeRest API**](https://serverest.dev/), uma API REST
 
 ---
 
-## 📁 Estrutura do Projeto / Repositório
+## 📁 Estrutura do Projeto
 
 O projeto está organizado para facilitar a navegação e execução:
 
@@ -221,7 +239,7 @@ graph LR
 
 ---
 
-## 📦 Requisitos
+## 📦 Pré-requisitos
 
 ### Requisitos de Sistema
 
@@ -301,9 +319,11 @@ npm install newman-reporter-htmlextra newman-reporter-html newman-reporter-csv
 newman --version
 ```
 
+**Saída esperada**: `newman/6.x.x` (ou versão superior)
+
 ---
 
-## ▶️ Como Executar
+## ▶️ Como executar
 
 ### Execução Local
 
@@ -381,7 +401,7 @@ Os testes são executados automaticamente a cada `push` ou `pull request` para a
 
 ---
 
-## Visualizar Relatórios
+## 📊 Relatórios
 
 ### Relatórios Locais
 
