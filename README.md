@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1>🎯 Testes de API com Postman e Newman</h1>
+<h1>🏆 Testes de API com Postman e Newman</h1>
 
 <!-- Badges de Tecnologias -->
 [![Node Version](https://img.shields.io/badge/Node-%3E%3D14.0.0-339933?logo=node.js)](https://nodejs.org)
