@@ -40,6 +40,34 @@
 | **ServeREST - Admin** | 20 | 104 | 127 | 100% | 1.856s |
 | **ServeREST - User** | 18 | 92 | 113 | 100% | 1.617s |
 
+### 👩‍💻 Coleção API ServeRest ADM
+
+| Endpoint | Métodos | Cenários | Testes |
+|----------|---------|----------|--------|
+| `/login` | POST | Login com credenciais de admin | 6 |
+| `/usuarios` | GET, POST | Listagem de usuários, Cadastro de admin e usuário auxiliar | 10 |
+| `/usuarios/{_id}` | GET, PUT, DELETE | Busca por ID, Edição de usuário auxiliar, Exclusão de usuário auxiliar | 13 |
+| `/produtos` | GET, POST | Listagem de produtos, Cadastro de 2 produtos (autorizado) | 17 |
+| `/produtos/{_id}` | GET, PUT, DELETE | Busca de 2 produtos específicos, Edição de produto (autorizado), Exclusão de produto (autorizado) | 20 |
+| `/carrinhos` | GET, POST | Listagem de carrinhos ativos e Criação de carrinho | 18 |
+| `/carrinhos/{_id}` | GET | Busca de carrinho específico com validação de cálculos | 14 |
+| `/carrinhos/concluir-compra` | DELETE | Tentativa de conclusão após cancelamento | 8 |
+| `/carrinhos/cancelar-compra` | DELETE | Cancelamento com reabastecimento de estoque | 8 |
+
+### 👤 Coleção API ServeRest User
+
+| Endpoint | Métodos | Cenários | Testes |
+|----------|---------|----------|--------|
+| `/login` | POST | Login com credenciais de usuário comum | 6 |
+| `/usuarios` | GET, POST | Listagem de usuários, Cadastro de user e usuário auxiliar | 10 |
+| `/usuarios/{_id}` | GET, PUT, DELETE | Busca por ID, Edição de usuário auxiliar, Exclusão de usuário auxiliar | 13 |
+| `/produtos` | GET, POST | Listagem de produtos, **Tentativa de cadastro (403 Forbidden)** | 11 |
+| `/produtos/{_id}` | GET, PUT, DELETE | Busca de produto específico, **Tentativa de edição (403 Forbidden)**, **Tentativa de exclusão (403 Forbidden)** | 22 |
+| `/carrinhos` | GET, POST | Listagem de carrinhos ativos e Criação de carrinho | 18 |
+| `/carrinhos/{_id}` | GET | Busca de carrinho específico com validação de cálculos | 14 |
+| `/carrinhos/concluir-compra` | DELETE | Tentativa de conclusão após cancelamento | 8 |
+| `/carrinhos/cancelar-compra` | DELETE | Cancelamento com reabastecimento de estoque | 8 |
+
 ---
 
 ## 📊 Cobertura Detalhada por Endpoint
@@ -599,3 +627,4 @@ O projeto apresenta uma **excelente cobertura de testes** (95%), com validaçõe
 **Repositório:** [testes-api-postman-newman](https://github.com/sthefanyricardo/testes-api-postman-newman)
 
 > Para documentação completa, consulte: [Test Coverage Report](test-coverage.md)
+
