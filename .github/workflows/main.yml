@@ -89,6 +89,10 @@ jobs:
   deploy-github-pages:
     # Este job só executa se o job 'newman' for bem-sucedido
     needs: run-job-newman
+    # Só faz deploy quando for push para main ou workflow_dispatch para main
+    if: >-
+      (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
+      (github.event_name == 'workflow_dispatch' && (github.event.inputs.ref == '' || github.event.inputs.ref == 'main'))
     
     runs-on: ubuntu-latest
     
