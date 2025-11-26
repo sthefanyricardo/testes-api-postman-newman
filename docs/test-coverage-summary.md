@@ -542,17 +542,6 @@
 
 ---
 
-## 📈 Evolução da Cobertura
-
-| Data | Cobertura | Testes | Endpoints |
-|------|-----------|--------|-----------|
-| 01/11/2024 | 60% | 80 | 10 |
-| 10/11/2024 | 75% | 120 | 15 |
-| 20/11/2024 | 90% | 160 | 17 |
-| **24/11/2024** | **95%** | **180+** | **17** |
-
----
-
 ## 🎯 Metas Futuras
 
 ### Q1 2025
@@ -605,7 +594,7 @@ O projeto apresenta uma **excelente cobertura de testes** (95%), com validaçõe
 
 ---
 
-**Gerado automaticamente pelo projeto de testes API ServeRest**  
 **Maintainer:** [@sthefanyricardo](https://github.com/sthefanyricardo)  
 
 **Repositório:** [testes-api-postman-newman](https://github.com/sthefanyricardo/testes-api-postman-newman)
+
