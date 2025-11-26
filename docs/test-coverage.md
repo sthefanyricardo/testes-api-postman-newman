@@ -942,7 +942,7 @@ A cobertura de testes da API ServeREST está **completa e robusta**, com:
 
 ## 📞 Informações
 
-**Projeto**: Testes da API ServeRest com Postman e Newman
+**Projeto**: Testes da API ServeRest com Postman e Newman  
 **Ferramenta**: Postman + Newman v6.2.1  
 **Data de Execução**: Terça-feira, 26 de Novembro de 2025  
 **Responsável**: Sthefany Albuquerque Ricardo  
