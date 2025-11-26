@@ -132,7 +132,7 @@ testes-api-postman-newman/
 | `/carrinhos` | GET, POST | - | - |
 | `/carrinhos/{_id}` | GET | - | - |
 | `/carrinhos/concluir-compra` | DELETE | - | - |
-| `/carrinhos/cancelar-compraa` | DELETE | - | - |
+| `/carrinhos/cancelar-compra` | DELETE | - | - |
 
 ### Coleção API ServeRest User
 
@@ -146,7 +146,7 @@ testes-api-postman-newman/
 | `/carrinhos` | GET, POST | - | - |
 | `/carrinhos/{_id}` | GET | - | - |
 | `/carrinhos/concluir-compra` | DELETE | - | - |
-| `/carrinhos/cancelar-compraa` | DELETE | - | - |
+| `/carrinhos/cancelar-compra` | DELETE | - | - |
 
 ### Tipos de Validações
 
