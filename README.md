@@ -193,14 +193,14 @@ testes-api-postman-newman/
 
 ## 🗺️ Roadmap
 
-### Concluído
+### ✅ Concluído
 
 - [x] Cobertura completa de endpoints nas Collections do Postman
 - [x] Múltiplos formatos de relatório com o Newman
 - [x] Pipeline CI/CD com GitHub Actions
 - [x] Deploy automático no GitHub Pages
 
-### Em Desenvolvimento
+### 🚧 Em Desenvolvimento
 
 - [ ] Desenvolvimento de testes automatizados de API com o Robot Framework
 - [ ] Cobertura completa dos testes cenarios positivos, negativos e alternativos com o Robot Framework
@@ -210,7 +210,7 @@ testes-api-postman-newman/
 - [ ] Deploy automático no GitHub Pages
 - [ ] Testes de contrato com Python ou Pact
 
-### Planejado
+### 📅 Planejado
 
 - [ ] Testes de carga e stress com K6
 - [ ] Integração com ferramentas de monitoramento
@@ -483,11 +483,11 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 Agradecimentos especiais a:
 
-- **[Priscila Caimi](https://github.com/pricaimiTech)** - Instrutora do curso no Qualiters Club, pela excelente didática e conteúdo
-- **[Paulo Gonçalves](https://github.com/PauloGoncalvesBH)** - Criador da ServeRest API, pela ferramenta educacional incrível
-- **[ServeRest](https://github.com/ServeRest/ServeRest)** - Comunidade open source e documentação excelente
-- **[Postman](https://www.postman.com/)** - Pela plataforma robusta de testes de API
-- **[Newman Team](https://github.com/postmanlabs/newman)** - Pelo executor CLI poderoso
+- **[Priscila Caimi](https://github.com/pricaimiTech)** - Instrutora do curso no Qualiters Club, pela excelente didática e conteúdo de qualidade
+- **[Paulo Gonçalves](https://github.com/PauloGoncalvesBH)** - Criador da ServeRest API, pela ferramenta educacional incrível e suporte à comunidade
+- **[ServeRest](https://github.com/ServeRest/ServeRest)** - Pela API open source e documentação excelente
+- **[Postman](https://www.postman.com/)** - Pela plataforma robusta e completa de testes de API
+- **[Newman Team](https://github.com/postmanlabs/newman)** - Pelo executor CLI poderoso e extensível
 
 ---
 
@@ -502,30 +502,36 @@ Agradecimentos especiais a:
 
 ## 🔗 Links Úteis
 
-### Documentação
+### 📚 Documentação
 
 - [Documentação do Postman](https://learning.postman.com/docs/getting-started/introduction/)
 - [Documentação do Newman](https://github.com/postmanlabs/newman)
 - [GitHub Actions Documentation](https://docs.github.com/en/actions)
 - [ServeRest API Docs](https://serverest.dev)
+- [Newman Reporters](https://www.npmjs.com/search?q=newman-reporter)
 
-### Cursos
+### 🎓 Cursos
 
 - [Curso na Udemy](https://www.udemy.com/course/dominando-postman-2023-testando-e-automatizado-apis)
 - [Curso no Qualiters Club](https://priscilacaimi.com/estude-comigo/)
 
-### Comunidade
+### 👥 Comunidade
 
-- [Postman Community](https://community.postman.com/)
-- [ServeRest GitHub](https://github.com/ServeRest/ServeRest)
+- [Postman Community](https://community.postman.com/) - Fórum oficial do Postman
+- [ServeRest GitHub](https://github.com/ServeRest/ServeRest) - Repositório da API
+- [Postman Public Workspace](https://web.postman.co/workspace/bd80135c-7abe-4289-a106-935b4fb06bb9) - Workspace público com as coleções
 
 ---
 
 <div align="center">
 
-**⭐ Se este projeto foi útil para você, considere dar uma estrela!**
+### ⭐ Se este projeto foi útil para você, considere dar uma estrela!
 
 **Desenvolvido com ❤️ por [Sthefany Ricardo](https://github.com/sthefanyricardo)**
+
+[![Made with Postman](https://img.shields.io/badge/Made%20with-Postman-FF6C37?style=flat&logo=postman&logoColor=white)](https://www.postman.com/)
+[![Powered by Newman](https://img.shields.io/badge/Powered%20by-Newman-FF6C37?style=flat&logo=postman&logoColor=white)](https://github.com/postmanlabs/newman)
+[![Automated with GitHub Actions](https://img.shields.io/badge/Automated%20with-GitHub%20Actions-2088FF?style=flat&logo=github-actions&logoColor=white)](https://github.com/features/actions)
 
 **[⬆ Voltar ao topo](#-testes-de-api-com-postman-e-newman)**
 
