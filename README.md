@@ -1,9 +1,27 @@
 # 🎯 Testes de API com Postman e Newman
 
-[![GitHub Actions](https://github.com/sthefanyricardo/testes-api-postman-newman/actions/workflows/main.yml/badge.svg)](https://github.com/sthefanyricardo/testes-api-postman-newman/actions)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js Version](https://img.shields.io/badge/node-%3E%3D14.0.0-brightgreen)](https://nodejs.org)
+<div align="center">
+
+<!-- Badges de Tecnologias -->
+[![Node Version](https://img.shields.io/badge/Node-%3E%3D14.0.0-339933?logo=node.js)](https://nodejs.org)
+[![npm Version](https://img.shields.io/badge/npm-%3E%3D6.0.0-CB3837?logo=npm)](https://npmjs.com)
 [![Postman](https://img.shields.io/badge/Postman-FF6C37?logo=postman&logoColor=white)](https://www.postman.com/)
+[![Newman](https://img.shields.io/badge/Newman-CLI-FF6C37?logo=postman&logoColor=white)](https://github.com/postmanlabs/newman)
+
+<!-- Badges de Status do Projeto -->
+[![GitHub Actions](https://github.com/sthefanyricardo/testes-api-postman-newman/actions/workflows/main.yml/badge.svg)](https://github.com/sthefanyricardo/testes-api-postman-newman/actions)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-success?logo=github)](https://sthefanyricardo.github.io/testes-api-postman-newman/)
+[![Issues](https://img.shields.io/github/issues/sthefanyricardo/testes-api-postman-newman?logo=github)](https://github.com/sthefanyricardo/testes-api-postman-newman/issues)
+[![Pull Requests](https://img.shields.io/github/issues-pr/sthefanyricardo/testes-api-postman-newman?logo=github)](https://github.com/sthefanyricardo/testes-api-postman-newman/pulls)
+<!-- Badge de Última Atualização -->
+[![Last Commit](https://img.shields.io/github/last-commit/sthefanyricardo/testes-api-postman-newman?logo=github)](https://github.com/sthefanyricardo/testes-api-postman-newman/commits/main)
+
+<!-- Badges de Métricas (Opcionais) -->
+[![GitHub stars](https://img.shields.io/github/stars/sthefanyricardo/testes-api-postman-newman?style=social)](https://github.com/sthefanyricardo/testes-api-postman-newman/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/sthefanyricardo/testes-api-postman-newman?style=social)](https://github.com/sthefanyricardo/testes-api-postman-newman/network/members)
+[![GitHub watchers](https://img.shields.io/github/watchers/sthefanyricardo/testes-api-postman-newman?style=social)](https://github.com/sthefanyricardo/testes-api-postman-newman/watchers)
+
+</div>
 
 ---
 ## 📋 Índice
