@@ -149,39 +149,44 @@ testes-api-postman-newman/
 
 ## 📊 Cobertura de Testes
 
-### 👩‍💻 Coleção API ServeRest ADM
+### 🎯 Resumo
 
-| Endpoint | Métodos | Cenários | Testes |
-|----------|---------|----------|--------|
-| `/login` | POST | Login com credenciais de admin | 6 |
-| `/usuarios` | GET, POST | Listagem de usuários, Cadastro de admin e usuário auxiliar | 10 |
-| `/usuarios/{_id}` | GET, PUT, DELETE | Busca por ID, Edição de usuário auxiliar, Exclusão de usuário auxiliar | 13 |
-| `/produtos` | GET, POST | Listagem de produtos, Cadastro de 2 produtos (autorizado) | 17 |
-| `/produtos/{_id}` | GET, PUT, DELETE | Busca de 2 produtos específicos, Edição de produto (autorizado), Exclusão de produto (autorizado) | 20 |
-| `/carrinhos` | GET, POST | Listagem de carrinhos ativos e Criação de carrinho | 18 |
-| `/carrinhos/{_id}` | GET | Busca de carrinho específico com validação de cálculos | 14 |
-| `/carrinhos/concluir-compra` | DELETE | Tentativa de conclusão após cancelamento | 8 |
-| `/carrinhos/cancelar-compra` | DELETE | Cancelamento com reabastecimento de estoque | 8 |
+| 📈 Métrica | 📊 Valor | ✅ Status |
+|-----------|---------|----------|
+| **Requisições Executadas** | 38 | ✅ 100% |
+| **Testes Validados** | 196 | ✅ 100% |
+| **Assertions** | 240 | ✅ 100% |
+| **Endpoints Cobertos** | 16/16 | ✅ 100% |
+| **Tempo de Execução** | 3.5s | ⚡ Excelente |
 
-📈 **Total: 20 requisições | 104 testes executados | 127 assertions**
 
----
+### 🗂️ Cobertura por Módulo
+
+| Módulo | Endpoints | Testes | Status |
+|--------|-----------|--------|--------|
+| 🔐 **Autenticação** | 1/1 | 12 | ✅ 100% |
+| 👤 **Usuários** | 5/5 | 56 | ✅ 100% |
+| 📦 **Produtos** | 5/5 | 74 | ✅ 100% |
+| 🛒 **Carrinhos** | 5/5 | 96 | ✅ 100% |
+
+
+### ⚡ Performance
+
+| Collection | Requisições | Tempo Total | Tempo Médio |
+|------------|-------------|-------------|-------------|
+| **Admin** | 20 | 1.856s | 56ms |
+| **User** | 18 | 1.617s | 50ms |
+| **Total** | **38** | **3.473s** | **53ms** |
+
+**95% das requisições** abaixo de 100ms ⚡
 
 ### 👤 Coleção API ServeRest User
-
-| Endpoint | Métodos | Cenários | Testes |
-|----------|---------|----------|--------|
-| `/login` | POST | Login com credenciais de usuário comum | 6 |
-| `/usuarios` | GET, POST | Listagem de usuários, Cadastro de user e usuário auxiliar | 10 |
-| `/usuarios/{_id}` | GET, PUT, DELETE | Busca por ID, Edição de usuário auxiliar, Exclusão de usuário auxiliar | 13 |
-| `/produtos` | GET, POST | Listagem de produtos, **Tentativa de cadastro (403 Forbidden)** | 11 |
-| `/produtos/{_id}` | GET, PUT, DELETE | Busca de produto específico, **Tentativa de edição (403 Forbidden)**, **Tentativa de exclusão (403 Forbidden)** | 22 |
-| `/carrinhos` | GET, POST | Listagem de carrinhos ativos e Criação de carrinho | 18 |
-| `/carrinhos/{_id}` | GET | Busca de carrinho específico com validação de cálculos | 14 |
-| `/carrinhos/concluir-compra` | DELETE | Tentativa de conclusão após cancelamento | 8 |
-| `/carrinhos/cancelar-compra` | DELETE | Cancelamento com reabastecimento de estoque | 8 |
-
 📈 **Total: 18 requisições | 92 testes executados | 113 assertions**
+
+### 👩‍💻 Coleção API ServeRest ADM
+📈 **Total: 20 requisições | 104 testes executados | 127 assertions**
+
+> 📖 Para documentação completa, consulte: [Cobertura de testes detalhada](docs/test-coverage.md) ou [Cobertura de testes resumo executivo](docs/test-coverage.md)
 
 ---
 
