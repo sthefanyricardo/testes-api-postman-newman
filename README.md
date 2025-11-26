@@ -6,12 +6,30 @@
 [![Postman](https://img.shields.io/badge/Postman-FF6C37?logo=postman&logoColor=white)](https://www.postman.com/)
 
 ---
+## 📋 Índice
 
-## 📝 Descrição
+- [Sobre o Projeto](#-sobre-o-projeto)
+- [Funcionalidades](#-funcionalidades)
+- [Tecnologias e Ferramentas](#-tecnologias-e-ferramentas)
+- [Estrutura do Projeto](#-estrutura-do-projeto)
+- [Cobertura de Testes](#-cobertura-de-testes)
+- [Roadmap](#-roadmap)
+- [Pipeline CI/CD](#-pipeline-cicd)
+- [Pré-requisitos](#-pré-requisitos)
+- [Instalação](#-instalação)
+- [Como Executar](#-como-executar)
+- [Relatórios](#-relatórios)
+- [Licença](#-licença)
+- [Agradecimentos](#-agradecimentos)
+- [Contato](#-contato)
+
+---
+
+## 🎓 Sobre o Projeto
 
 Este repositório demonstra a implementação completa de **testes automatizados de API** utilizando **Postman** e **Newman**, com integração contínua via **GitHub Actions** e deploy no **Github Pages**.
 
-### Objetivo
+### 📝 Objetivo
 
 O projeto foi desenvolvido como parte do curso "[Dominando Postman: Do Teste Manual a Performance APIs](https://www.udemy.com/course/dominando-postman-2023-testando-e-automatizado-apis)" na Udemy e no Qualiters Club, ministrado pela Priscila Caimi no Qualiters Club, e tem como objetivo:
 
@@ -20,22 +38,63 @@ O projeto foi desenvolvido como parte do curso "[Dominando Postman: Do Teste Man
 - ✅ Gerar **relatórios profissionais** com múltiplos formatos (HTML, HTML-EXTRA, CSV, JSON)
 - ✅ Implementar **pipeline CI/CD** com GitHub Actions
 - ✅ Publicar relatórios automaticamente no **GitHub Pages**
+- ✅ Aplicar boas práticas de QA e DevOps
 
 ### API ServeRest
 
-Este projeto utiliza a [**ServeRest API**](https://serverest.dev/), uma API REST gratuita que simula uma loja virtual, desenvolvida por [Paulo Gonçalves](https://github.com/PauloGoncalvesBH) para servir como material de estudos.
+Este projeto utiliza a [**ServeRest API**](https://serverest.dev/), uma API REST gratuita que simula uma loja virtual, desenvolvida por [Paulo Gonçalves](https://github.com/PauloGoncalvesBH) especificamente para servir como material de estudos em testes de API.
 
-**Funcionalidades testadas:**
-- 🔐 Autenticação e autorização de usuários
-- 👤 Gerenciamento de usuários (CRUD)
-- 📦 Gerenciamento de produtos (CRUD)
-- 🛒 Operações de carrinho de compras 
-- ✔️ Validação de contratos (json schema validation)
-- 🔄 Testes de integração entre endpoints
+#### Endpoints testados:
+- 🔐 `/login` - Autenticação e autorização de usuários
+- 👤 `/usuarios` e `/usuarios/{_id}` - Gerenciamento de usuários (CRUD)
+- 📦 `/produtos` e `/produtos/{_id}` - Gerenciamento de produtos (CRUD)
+- 🛒 `/carrinhos`, `/carrinhos/{_id}`, `/carrinhos/concluir-compra` e `/carrinhos/cancelar-compra` - Operações de carrinho de compras 
 
 ---
 
-## ⚙️ Estrutura do Repositório
+## ✨ Funcionalidades
+
+### Tipos de Testes Implementados
+
+- **Testes Funcionais**: Validação de endpoints, status codes, headers e payloads
+- **Testes de Contrato**: Validação de JSON schema com a biblioteca Ajv
+- **Testes Negativos**: Validação de cenários de erro
+- **Testes de Segurança**: Validação de autenticação e autorização
+- **Testes de Integração**: Fluxos completos entre múltiplos endpoints
+- **Testes de Performance**: Medição de tempo de resposta
+
+### Recursos Técnicos
+
+- 🔄 **Automação Completa**: Execução via CLI e CI/CD
+- 📊 **Múltiplos Formatos de Relatório**: HTML, HTML Extra, CSV, JSON
+- 🌐 **Deploy Automático**: Publicação de relatórios no GitHub Pages
+- 🔍 **Variáveis de Ambiente**: Gestão de configurações por ambiente
+- 📝 **Documentação Viva**: Collections como documentação executável
+
+---
+
+## 🛠️ Tecnologias e Ferramentas
+
+### Principais
+
+| Ferramenta | Versão | Propósito |
+|------------|-------------------|-----------|
+| [Node.js](https://nodejs.org/) | ≥14.0.0 | Ambiente de execução e gerenciamento de dependências para Newman. |
+| [Newman](https://www.npmjs.com/package/newman) | Latest | Executor de linha de comando para as coleções do Postman, incluindo a geração de relatorios. |
+| [Postman](https://www.postman.com/) | Latest | Criação e organização das coleções de requisições, variáveis de ambiente e scripts de teste (com JavaScript). |
+| [Collections no Postman](https://web.postman.co/workspace/bd80135c-7abe-4289-a106-935b4fb06bb9) | - | Coleções de requisições, variáveis de ambiente e scripts de teste (com JavaScript). |
+| [GitHub Actions](https://github.com/features/actions) | - | Pipelines de CI/CD |
+
+### Reports / Relatórios
+| Ferramenta | Versão | Propósito |
+|------------|-------------------|-----------|
+| [newman-reporter-htmlextra](https://www.npmjs.com/package/newman-reporter-htmlextra) | Latest | Geração de relatórios HTML detalhados e amigáveis. |
+| [newman-reporter-html](https://www.npmjs.com/package/newman-reporter-html) | Latest | Geração de relatórios HTML padrão. |
+| [newman-reporter-csv](https://www.npmjs.com/package/newman-reporter-csv) | Latest | Geração de relatórios em formato CSV |
+
+---
+
+## 📁 Estrutura do Projeto
 
 O projeto está organizado para facilitar a navegação e execução:
 
@@ -45,6 +104,8 @@ testes-api-postman-newman/
 ├── .github/
 │   └── workflows/
 │       └── main.yml                              # Configuração do pipeline CI/CD (GitHub Actions).
+│   └── templates/
+│       └── index.html                              # Configuração da página index para o deploy no GitHUb Pages
 │
 ├── collections/                                  # Arquivos de collection.json 
 │   ├── serve_rest_adm.postman_collection.json    # Coleção de testes - Perfil Admin
@@ -57,10 +118,107 @@ testes-api-postman-newman/
 ```
 ---
 
-## ☁️ Automação (Pipeline CI/CD)Pipeline CI/CD
+## 🧪 Cobertura de Testes
 
-O pipeline é executado automaticamente em cada `push` ou `pull request` para a branch `main`:
+### Coleção API ServeRest ADM
 
+| Endpoint | Métodos | Cenários | Testes |
+|----------|---------|----------|--------|
+| `/login` | POST | Login com credenciais de admin | 6 |
+| `/usuarios` | GET, POST | Listagem de usuários (17 usuários), Cadastro de admin e usuário auxiliar | 10 |
+| `/usuarios/{_id}` | GET, PUT, DELETE | Busca por ID, Edição de usuário auxiliar, Exclusão de usuário auxiliar | 13 |
+| `/produtos` | GET, POST | Listagem de produtos (10 produtos), Cadastro de 2 produtos (autorizado) | 17 |
+| `/produtos/{_id}` | GET, PUT, DELETE | Busca de 2 produtos específicos, Edição de produto (autorizado), Exclusão de produto (autorizado) | 20 |
+| `/carrinhos` | GET, POST | Listagem de carrinhos ativos (2 carrinhos), Criação de carrinho com 398 unidades | 18 |
+| `/carrinhos/{_id}` | GET | Busca de carrinho específico com validação de cálculos | 14 |
+| `/carrinhos/concluir-compra` | DELETE | Tentativa de conclusão após cancelamento | 8 |
+| `/carrinhos/cancelar-compra` | DELETE | Cancelamento com reabastecimento de estoque | 8 |
+
+**Total: 20 requisições | 104 testes executados | 127 assertions**
+
+---
+
+### Coleção API ServeRest User
+
+| Endpoint | Métodos | Cenários | Testes |
+|----------|---------|----------|--------|
+| `/login` | POST | Login com credenciais de usuário comum | 6 |
+| `/usuarios` | GET, POST | Listagem de usuários (17 usuários), Cadastro de user e usuário auxiliar | 10 |
+| `/usuarios/{_id}` | GET, PUT, DELETE | Busca por ID, Edição de usuário auxiliar, Exclusão de usuário auxiliar | 13 |
+| `/produtos` | GET, POST | Listagem de produtos (10 produtos), **Tentativa de cadastro (403 Forbidden)** | 11 |
+| `/produtos/{_id}` | GET, PUT, DELETE | Busca de produto específico, **Tentativa de edição (403 Forbidden)**, **Tentativa de exclusão (403 Forbidden)** | 22 |
+| `/carrinhos` | GET, POST | Listagem de carrinhos ativos (2 carrinhos), Criação de carrinho | 18 |
+| `/carrinhos/{_id}` | GET | Busca de carrinho específico com validação de cálculos | 14 |
+| `/carrinhos/concluir-compra` | DELETE | Tentativa de conclusão após cancelamento | 8 |
+| `/carrinhos/cancelar-compra` | DELETE | Cancelamento com reabastecimento de estoque | 8 |
+
+**Total: 18 requisições | 92 testes executados | 113 assertions**
+
+---
+
+### Tipos de Validações
+
+- ✅ Status codes (200, 201, 400, 401, 404 e etc.)
+- ✅ Headers (Authorization, Content-Type, Accept e etc.)
+- ✅ Estrutura do corpo de resposta
+- ✅ Validação de JSON Schema
+- ✅ Validação de lógica de negócios
+- ✅ Os dados retornados na resposta das requisições
+- ✅ As mensagens de sucesso retornadas nas respostas das requisições
+- ✅ As mensagens de erro retornadas nas respostas das requisições
+- ✅ O tempo de resposta
+
+---
+
+### 🔑 Destaques
+
+**Cobertura Geral:**
+- 📊 **38 requisições totais** (20 Admin + 18 User)
+- ✅ **196 testes executados** (104 Admin + 92 User)
+- ✅ **240 assertions totais** (127 Admin + 113 User)
+- 🎯 **100% de taxa de sucesso** em ambas as collections
+
+**Diferenças entre Admin e User:**
+- ✅ **Admin**: Autorizado para POST, PUT, DELETE em `/produtos` (Status 200/201)
+- ❌ **User**: Bloqueado para POST, PUT, DELETE em `/produtos` (Status 403 - "Rota exclusiva para administradores")
+- 🔒 **6 cenários de autorização** validados com sucesso
+
+---
+
+## 🗺️ Roadmap
+
+### Concluído
+
+- [x] Cobertura completa de endpoints nas Collections do Postman
+- [x] Múltiplos formatos de relatório com o Newman
+- [x] Pipeline CI/CD com GitHub Actions
+- [x] Deploy automático no GitHub Pages
+
+### Em Desenvolvimento
+
+- [ ] Desenvolvimento de testes automatizados de API com o Robot Framework
+- [ ] Cobertura completa dos testes cenarios positivos, negativos e alternativos com o Robot Framework
+- [ ] Testes de contrato com validação de JSON Schema no Robot Framework
+- [ ] Dashboard de métricas em tempo real
+- [ ] Pipeline CI/CD com GitHub Actions
+- [ ] Deploy automático no GitHub Pages
+- [ ] Testes de contrato com Python ou Pact
+
+### Planejado
+
+- [ ] Testes de carga e stress com K6
+- [ ] Integração com ferramentas de monitoramento
+- [ ] Dashboard de métricas em tempo real
+- [ ] Testes de segurança com OWASP ZAP
+- [ ] Testes de contrato com Pact ou Python
+
+--- 
+
+## ☁️ Pipeline CI/CD
+
+O arquivo `.github/workflows/main.yml` contém toda a configuração do pipeline. O pipeline é executado automaticamente em cada `push` ou `pull request` para a branch `main`. 
+
+#### Etapas do Pipeline
 1. **Setup**: Configuração do ambiente Node.js
 2. **Install**: Instalação do Newman e reporters
 3. **Test**: Execução das coleções de teste
@@ -70,7 +228,7 @@ O pipeline é executado automaticamente em cada `push` ou `pull request` para a 
 5. **Upload**: Armazenamento como artefatos do GitHub Actions
 6. **Deploy**: Publicação automática no GitHub Pages (quando testes passam)
 
-## Fluxo de Testes
+### Fluxo de Execução dos Testes
 
 ```mermaid
 graph LR
@@ -87,27 +245,41 @@ graph LR
     H --> I
 ```
 
+### Fluxo de Execução do Pipeline de CI/CD
+
+```mermaid
+graph LR
+    A[Push/PR on branch Main] --> B[Pipeline - GitHub Actions]
+    B --> C[Install Node.js]
+    C --> D[Install Newman]
+    D --> E[Run Tests ADM]
+    E --> F[Run Tests User]
+    F --> G[Generate Reports]
+    G --> H{Tests Passed?}
+    H -->|Yes| I[Deploy to GitHub Pages]
+    H -->|No| J[Upload Artifacts]
+```
+
 ---
 
-## 📦 Requisitos
+## 📦 Pré-requisitos
 
 ### Requisitos de Sistema
 
-- **Node.js**: v14.0.0 ou superior
-- **NPM**: v6.0.0 ou superior
 - **Sistema Operacional**: Windows, macOS ou Linux
+- **Node.js**: v14.0.0 ou superior (Baixe e instale o Node.js em [nodejs.org](https://nodejs.org/).)
+- **NPM**: v6.0.0 ou superior
+- **Git**: Para clonar o repositório
 
-### 🛠️ Tecnologias e Ferramentas
+### Verificar Instalações
 
-| Ferramenta | Versão Recomendada | Propósito |
-|------------|-------------------|-----------|
-| [Node.js](https://nodejs.org/) | ≥ 14.0.0 | Ambiente de execução e gerenciamento de dependências para Newman. |
-| [Newman](https://www.npmjs.com/package/newman) | Latest | Executor de linha de comando para as coleções do Postman, incluindo a geração de relatorios. |
-| [newman-reporter-htmlextra](https://www.npmjs.com/package/newman-reporter-htmlextra) | Latest | Geração de relatórios HTML detalhados e amigáveis. |
-| [newman-reporter-html](https://www.npmjs.com/package/newman-reporter-html) | Latest | Geração de relatórios HTML padrão. |
-| [newman-reporter-csv](https://www.npmjs.com/package/newman-reporter-csv) | Latest | Geração de relatórios em formato CSV |
-| [Postman](https://www.postman.com/) | Latest | Criação e organização das coleções de requisições, variáveis de ambiente e scripts de teste (com JavaScript). |
-| [Collections no Postman](https://web.postman.co/workspace/bd80135c-7abe-4289-a106-935b4fb06bb9) | Latest | Coleções de requisições, variáveis de ambiente e scripts de teste (com JavaScript). |
+```bash
+node --version
+
+npm --version
+
+git --version
+```
 
 ---
 
@@ -116,7 +288,10 @@ graph LR
 ### 1. Clone o Repositório
 
 ```bash
+# comando git
 git clone https://github.com/sthefanyricardo/testes-api-postman-newman.git
+
+# pasta do projeto
 cd testes-api-postman-newman
 ```
 
@@ -128,6 +303,7 @@ Verifique a instalação:
 
 ```bash
 node --version
+
 npm --version
 ```
 
@@ -135,10 +311,16 @@ npm --version
 
 ### Instalação Global
 
+**newman**:
 ```bash
+# newman
 npm install -g newman
+
+# report newman
 npm install -g newman-reporter-htmlextra
+
 npm install -g newman-reporter-html
+
 npm install -g newman-reporter-csv
 ```
 
@@ -146,7 +328,12 @@ npm install -g newman-reporter-csv
 
 ```bash
 npm init -y
-npm install newman newman-reporter-htmlextra newman-reporter-html newman-reporter-csv
+
+# newman
+npm install newman
+
+# report newman
+npm install newman-reporter-htmlextra newman-reporter-html newman-reporter-csv
 ```
 
 ### 4. Verifique a Instalação
@@ -155,13 +342,15 @@ npm install newman newman-reporter-htmlextra newman-reporter-html newman-reporte
 newman --version
 ```
 
+**Saída esperada**: `newman/6.x.x` (ou versão superior)
+
 ---
 
 ## ▶️ Como Executar
 
-### Execução Local
+### 🖥️ Execução Local
 
-### Executar Todas as Coleções
+#### Executar coleção individual
 
 **Coleção ADM (Administrador):**
 
@@ -179,7 +368,7 @@ newman run collections/serve_rest_user.postman_collection.json \
   -r cli,htmlextra
 ```
 
-### Executar com Múltiplos Relatórios
+#### Executar com múltiplos relatórios
 
 ```bash
 # Criar diretório para relatórios
@@ -195,7 +384,7 @@ newman run collections/serve_rest_adm.postman_collection.json \
   --reporter-json-export newman_reports/report-adm.json
 ```
 
-### Executar com Opções Avançadas
+### Executar com opções avançadas
 
 ```bash
 # Com número de iterações
@@ -221,13 +410,15 @@ newman run collections/serve_rest_adm.postman_collection.json \
 
 ## Execução via GitHub Actions
 
-### Automática
+#### Automática
 
-Os testes são executados automaticamente a cada `push` ou `pull request` para a branch `main`.
+Os testes são executados automaticamente em cada:
+- Push para a branch `main`
+- Pull Request para a branch `main`
 
-### Manual
+#### Manual
 
-1. Acesse a aba **Actions** no GitHub
+1. Acesse a aba **Actions** no repositório do GitHub
 2. Selecione o workflow **"Run the test collection of the Serve REST API with newman"**
 3. Clique em **"Run workflow"**
 4. Selecione a branch desejada
@@ -235,9 +426,20 @@ Os testes são executados automaticamente a cada `push` ou `pull request` para a
 
 ---
 
-## Visualizar Relatórios
+## 📊 Relatórios
 
-### Relatórios Locais
+### Tipos de Relatórios
+
+| Formato | Descrição | Uso Recomendado |
+|---------|-----------|-----------------|
+| **HTML Extra** | Relatório detalhado e interativo | Análise visual e apresentações |
+| **HTML** | Relatório padrão | Documentação e arquivamento |
+| **CSV** | Dados tabulares | Análise em Excel/Google Sheets |
+| **JSON** | Dados estruturados | Integração com outras ferramentas |
+
+### Visualizar Relatórios
+
+### Relatórios locais
 
 Após a execução, abra os arquivos HTML no navegador:
 
@@ -251,28 +453,41 @@ start newman_reports/report-adm-htmlextra.html
 
 ### Relatórios do GitHub Actions
 
-1. Acesse a aba **Actions**
-2. Selecione a execução desejada
-3. Na seção **Artifacts**, faça o download de **Reports**
-4. Extraia o arquivo ZIP e abra os relatórios HTML
+1. Acesse a aba **Actions**.
+2. Selecione a execução desejada.
+3. Na seção **Artifacts**, faça o download de **Reports**.
+4. Extraia o arquivo ZIP e abra os relatórios HTML.
+5. Ou verifique o step: deploy-github-pages que contém a url do GitHub Pages.
 
 ### GitHub Pages
 
-Se os testes passarem, os relatórios são publicados automaticamente no GitHub Pages. Verifique a URL nos logs da execução ou acesse a seção **Environments** no repositório.
+Se os testes passarem, os relatórios são publicados automaticamente no GitHub Pages. Acesse:
+- Acesse a URL nos logs da execução da Pipeline, Step: deploy-github-pages.
+- Ou acesse a aba **Settings** do repositório e vá para a seção **Pages** ou **GitHub Pages**, lá você vai encontrar a URL atual do deploy no GitHub Pages.
+  
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ---
 
 ## 🙏 Agradecimentos
 
-- **[Priscila Caimi](https://github.com/pricaimiTech)** - Instrutora do curso no Qualiters Club
-- **[Paulo Gonçalves](https://github.com/PauloGoncalvesBH)** - Criador da ServeRest API
-- **[ServeRest](https://github.com/ServeRest/ServeRest)** - API REST para estudos de testes
+Agradecimentos especiais a:
+
+- **[Priscila Caimi](https://github.com/pricaimiTech)** - Instrutora do curso no Qualiters Club, pela excelente didática e conteúdo
+- **[Paulo Gonçalves](https://github.com/PauloGoncalvesBH)** - Criador da ServeRest API, pela ferramenta educacional incrível
+- **[ServeRest](https://github.com/ServeRest/ServeRest)** - Comunidade open source e documentação excelente
+- **[Postman](https://www.postman.com/)** - Pela plataforma robusta de testes de API
+- **[Newman Team](https://github.com/postmanlabs/newman)** - Pelo executor CLI poderoso
 
 ---
 
 ## 📞 Contato
 
-**Sthefany Ricardo**
+**Sthefany Albuquerque Ricardo**
 
 - GitHub: [@sthefanyricardo](https://github.com/sthefanyricardo)
 - Linkedin: [@sthefanyricardo](https://www.linkedin.com/in/sthefanyricardo/)
@@ -281,18 +496,30 @@ Se os testes passarem, os relatórios são publicados automaticamente no GitHub 
 
 ## 🔗 Links Úteis
 
+### Documentação
+
 - [Documentação do Postman](https://learning.postman.com/docs/getting-started/introduction/)
 - [Documentação do Newman](https://github.com/postmanlabs/newman)
 - [GitHub Actions Documentation](https://docs.github.com/en/actions)
+- [ServeRest API Docs](https://serverest.dev)
+
+### Cursos
+
 - [Curso na Udemy](https://www.udemy.com/course/dominando-postman-2023-testando-e-automatizado-apis)
 - [Curso no Qualiters Club](https://priscilacaimi.com/estude-comigo/)
-- [ServeRest API](https://serverest.dev)
+
+### Comunidade
+
+- [Postman Community](https://community.postman.com/)
+- [ServeRest GitHub](https://github.com/ServeRest/ServeRest)
 
 ---
 
 <div align="center">
 
-**⭐ Se você gostou deste projeto e/ou ele foi útil para você, considere dar uma estrela!**
+**⭐ Se este projeto foi útil para você, considere dar uma estrela!**
+
+**Desenvolvido com ❤️ por [Sthefany Ricardo](https://github.com/sthefanyricardo)**
 
 **[⬆ Voltar ao topo](#-testes-de-api-com-postman-e-newman)**
 
