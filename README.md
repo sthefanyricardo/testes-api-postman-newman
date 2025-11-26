@@ -325,9 +325,9 @@ newman --version
 
 ## ▶️ Como Executar
 
-### Execução Local
+### 🖥️ Execução Local
 
-### Executar Todas as Coleções
+#### Executar coleção individual
 
 **Coleção ADM (Administrador):**
 
@@ -345,7 +345,7 @@ newman run collections/serve_rest_user.postman_collection.json \
   -r cli,htmlextra
 ```
 
-### Executar com Múltiplos Relatórios
+#### Executar com múltiplos relatórios
 
 ```bash
 # Criar diretório para relatórios
@@ -361,7 +361,7 @@ newman run collections/serve_rest_adm.postman_collection.json \
   --reporter-json-export newman_reports/report-adm.json
 ```
 
-### Executar com Opções Avançadas
+### Executar com opções avançadas
 
 ```bash
 # Com número de iterações
@@ -387,13 +387,15 @@ newman run collections/serve_rest_adm.postman_collection.json \
 
 ## Execução via GitHub Actions
 
-### Automática
+#### Automática
 
-Os testes são executados automaticamente a cada `push` ou `pull request` para a branch `main`.
+Os testes são executados automaticamente em cada:
+- Push para a branch `main`
+- Pull Request para a branch `main`
 
-### Manual
+#### Manual
 
-1. Acesse a aba **Actions** no GitHub
+1. Acesse a aba **Actions** no repositório do GitHub
 2. Selecione o workflow **"Run the test collection of the Serve REST API with newman"**
 3. Clique em **"Run workflow"**
 4. Selecione a branch desejada
