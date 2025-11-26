@@ -186,9 +186,6 @@ testes-api-postman-newman/
 ### 👩‍💻 Coleção API ServeRest ADM
 📈 **Total: 20 requisições | 104 testes executados | 127 assertions**
 
-> 📖 Para documentação completa, consulte: [Cobertura de testes detalhada](docs/test-coverage.md) ou [Cobertura de testes resumo executivo](docs/test-coverage.md)
-
-
 ### 🚦 Tipos de Validações
 
 - ✅ **Status codes**: 200, 201, 400, 401, 403, 404, etc.
@@ -214,6 +211,8 @@ testes-api-postman-newman/
 - ✅ **Admin**: Autorizado para POST, PUT, DELETE em `/produtos` (Status 200/201)
 - ❌ **User**: Bloqueado para POST, PUT, DELETE em `/produtos` (Status 403 - "Rota exclusiva para administradores")
 - 🔒 **6 cenários de autorização** validados com sucesso
+
+> 📖 Para documentação completa, consulte: [Cobertura de testes detalhada](docs/test-coverage.md) ou [Cobertura de testes resumo executivo](docs/test-coverage.md)
 
 ---
 
