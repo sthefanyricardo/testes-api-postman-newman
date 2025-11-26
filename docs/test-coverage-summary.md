@@ -1,9 +1,18 @@
-# 📊 Relatório de Cobertura de Testes - API ServeRest
+<div align="center">
+
+<h1>📊 Relatório de Cobertura de Testes - API ServeRest</h1>
+
+[![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)](test-coverage.md)
+[![Tests](https://img.shields.io/badge/tests-196_passed-brightgreen)](test-coverage.md)
+[![Assertions](https://img.shields.io/badge/assertions-240-blue)](test-coverage.md)
+[![Performance](https://img.shields.io/badge/avg_response-53ms-yellow)](test-coverage.md)
 
 > **Última Atualização:** 24 de novembro de 2024  
 > **Versão:** 1.0.0  
 > **Total de Endpoints Testados:** 16  
 > **Cobertura Geral:** 100% ✅
+
+</div>
 
 ---
 
@@ -598,4 +607,5 @@ O projeto apresenta uma **excelente cobertura de testes** (95%), com validaçõe
 
 **Gerado automaticamente pelo projeto de testes API ServeRest**  
 **Maintainer:** [@sthefanyricardo](https://github.com/sthefanyricardo)  
+
 **Repositório:** [testes-api-postman-newman](https://github.com/sthefanyricardo/testes-api-postman-newman)
