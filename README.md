@@ -403,7 +403,18 @@ Os testes são executados automaticamente a cada `push` ou `pull request` para a
 
 ## 📊 Relatórios
 
-### Relatórios Locais
+### Tipos de Relatórios
+
+| Formato | Descrição | Uso Recomendado |
+|---------|-----------|-----------------|
+| **HTML Extra** | Relatório detalhado e interativo | Análise visual e apresentações |
+| **HTML** | Relatório padrão | Documentação e arquivamento |
+| **CSV** | Dados tabulares | Análise em Excel/Google Sheets |
+| **JSON** | Dados estruturados | Integração com outras ferramentas |
+
+### Visualizar Relatórios
+
+### Relatórios locais
 
 Após a execução, abra os arquivos HTML no navegador:
 
@@ -417,15 +428,18 @@ start newman_reports/report-adm-htmlextra.html
 
 ### Relatórios do GitHub Actions
 
-1. Acesse a aba **Actions**
-2. Selecione a execução desejada
-3. Na seção **Artifacts**, faça o download de **Reports**
-4. Extraia o arquivo ZIP e abra os relatórios HTML
+1. Acesse a aba **Actions**.
+2. Selecione a execução desejada.
+3. Na seção **Artifacts**, faça o download de **Reports**.
+4. Extraia o arquivo ZIP e abra os relatórios HTML.
+5. Ou verifique o step: deploy-github-pages que contém a url do GitHub Pages.
 
 ### GitHub Pages
 
-Se os testes passarem, os relatórios são publicados automaticamente no GitHub Pages. Verifique a URL nos logs da execução ou acesse a seção **Environments** no repositório.
-
+Se os testes passarem, os relatórios são publicados automaticamente no GitHub Pages. Acesse:
+- Acesse a URL nos logs da execução da Pipeline, Step: deploy-github-pages.
+- Ou acesse a aba **Settings** do repositório e vá para a seção **Pages** ou **GitHub Pages**, lá você vai encontrar a URL atual do deploy no GitHub Pages.
+  
 ---
 
 ## 📄 Licença
