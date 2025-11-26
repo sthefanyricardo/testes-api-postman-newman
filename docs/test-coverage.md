@@ -1,4 +1,9 @@
-# 📊 Relatório de Cobertura de Testes - ServeREST API
+<div align="center">
+
+<h1>📊 Relatório de Cobertura de Testes - ServeREST API</h1>
+
+
+</div>
 
 ## 🎯 Resumo Executivo
 
@@ -953,3 +958,4 @@ A cobertura de testes da API ServeREST está **completa e robusta**, com:
 **100% de cobertura | 0% de falhas | ⚡ Performance excelente**
 
 </div>
+
