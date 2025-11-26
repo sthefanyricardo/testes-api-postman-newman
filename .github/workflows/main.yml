@@ -89,6 +89,8 @@ jobs:
   deploy-github-pages:
     # Este job só executa se o job 'newman' for bem-sucedido
     needs: run-job-newman
+    # Only deploy from main branch (skip on PRs and non-main branches)
+    if: github.ref == 'refs/heads/main'
     
     runs-on: ubuntu-latest
     
