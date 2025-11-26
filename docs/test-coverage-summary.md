@@ -16,7 +16,7 @@
 
 ---
 
-## 📈 Resumo Executivo
+## 📈 Resumo
 
 ### Métricas Consolidadas (Admin + User)
 
@@ -597,4 +597,5 @@ O projeto apresenta uma **excelente cobertura de testes** (95%), com validaçõe
 **Maintainer:** [@sthefanyricardo](https://github.com/sthefanyricardo)  
 
 **Repositório:** [testes-api-postman-newman](https://github.com/sthefanyricardo/testes-api-postman-newman)
+
 
