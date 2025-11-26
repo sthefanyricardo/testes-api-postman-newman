@@ -229,7 +229,7 @@ O arquivo `.github/workflows/main.yml` contém toda a configuração do pipeline
 3. **Test**: Execução sequencial das coleções de teste
    - Coleção ADM (perfil administrador)
    - Coleção User (perfil usuário padrão)
-4. **Report**: Geração de múltiplos formatos de relatório (HTML, CSV, JSON)
+4. **Report**: Geração de múltiplos formatos de relatório (HTML-EXTRA, HTML, CSV, JSON)
 5. **Upload**: Armazenamento como artefatos do GitHub Actions (sempre executado)
 6. **Deploy**: Publicação automática no GitHub Pages (apenas quando testes passam)
    
@@ -270,82 +270,89 @@ graph LR
 ### Requisitos de Sistema
 
 - **Sistema Operacional**: Windows, macOS ou Linux
-- **Node.js**: v14.0.0 ou superior (Baixe e instale o Node.js em [nodejs.org](https://nodejs.org/).)
-- **NPM**: v6.0.0 ou superior
-- **Git**: Para clonar o repositório
+- **Node.js**: v14.0.0 ou superior ([Download Node.js](https://nodejs.org/))
+- **npm**: v6.0.0 ou superior (incluído com Node.js)
+- **Git**: Para clonar o repositório ([Download Git](https://git-scm.com/))
 
-### Verificar Instalações
+### ✅ Verificar Instalações
 
 ```bash
+# Verificar Node.js
 node --version
 
+# Verificar npm
 npm --version
 
+# Verificar Git
 git --version
+```
+
+**Saídas esperadas:**
+```
+node v14.x.x (ou superior)
+npm v6.x.x (ou superior)
+git version 2.x.x (ou superior)
 ```
 
 ---
 
 ## 🔧 Instalação
 
-### 1. Clone o Repositório
+### 1️⃣ Clone o Repositório
 
 ```bash
-# comando git
+# Clonar via HTTPS
 git clone https://github.com/sthefanyricardo/testes-api-postman-newman.git
 
-# pasta do projeto
+# OU clonar via SSH
+git clone git@github.com:sthefanyricardo/testes-api-postman-newman.git
+
+# Entrar no diretório
 cd testes-api-postman-newman
 ```
 
-### 2. Instale o Node.js
+### 2️⃣ Instale o Node.js
 
-Baixe e instale a versão mais recente do Node.js em [nodejs.org](https://nodejs.org/).
+Baixe e instale a versão LTS mais recente do Node.js em [nodejs.org](https://nodejs.org/).
 
 Verifique a instalação:
 
 ```bash
 node --version
-
 npm --version
 ```
 
-### 3. Instale o Newman e Reporters
+### 3️⃣ Instale o Newman e Reporters
 
-### Instalação Global
+#### Opção A: Instalação Global (Recomendado)
 
-**newman**:
 ```bash
-# newman
+# Instalar Newman
 npm install -g newman
 
-# report newman
+# Instalar Reporters
 npm install -g newman-reporter-htmlextra
-
 npm install -g newman-reporter-html
-
 npm install -g newman-reporter-csv
 ```
 
-### Instalação Local
+#### Opção B: Instalação Local
 
 ```bash
+# Inicializar projeto
 npm init -y
 
-# newman
-npm install newman
-
-# report newman
-npm install newman-reporter-htmlextra newman-reporter-html newman-reporter-csv
+# Instalar Newman e Reporters
+npm install newman newman-reporter-htmlextra newman-reporter-html newman-reporter-csv --save-dev
 ```
 
-### 4. Verifique a Instalação
+### 4️⃣ Verifique a Instalação
 
 ```bash
 newman --version
 ```
 
-**Saída esperada**: `newman/6.x.x` (ou versão superior)
+**Saída esperada**: `newman/6.x.x` ou superior
 
 ---
 
@@ -353,7 +360,7 @@ newman --version
 
 ### 🖥️ Execução Local
 
-#### Executar coleção individual
+#### Executar Coleção Individual
 
 **Coleção ADM (Administrador):**
 
@@ -371,7 +378,7 @@ newman run collections/serve_rest_user.postman_collection.json \
   -r cli,htmlextra
 ```
 
-#### Executar com múltiplos relatórios
+#### Executar com Múltiplos Relatórios
 
 ```bash
 # Criar diretório para relatórios
@@ -387,10 +394,10 @@ newman run collections/serve_rest_adm.postman_collection.json \
   --reporter-json-export newman_reports/report-adm.json
 ```
 
-### Executar com opções avançadas
+#### Executar com Opções Avançadas
 
 ```bash
-# Com número de iterações
+# Com múltiplas iterações (executar 3 vezes)
 newman run collections/serve_rest_adm.postman_collection.json \
   -e environment/serve_rest.postman_environment.json \
   -n 3 \
@@ -402,30 +409,35 @@ newman run collections/serve_rest_user.postman_collection.json \
   --delay-request 1000 \
   -r cli,htmlextra
 
-# Com timeout customizado
+# Com timeout customizado (10 segundos)
 newman run collections/serve_rest_adm.postman_collection.json \
   -e environment/serve_rest.postman_environment.json \
   --timeout-request 10000 \
   -r cli,htmlextra
+
+# Modo verbose (debug detalhado)
+newman run collections/serve_rest_adm.postman_collection.json \
+  -e environment/serve_rest.postman_environment.json \
+  --verbose
 ```
 
 ---
 
-## Execução via GitHub Actions
+### ☁️ Execução via GitHub Actions
 
-#### Automática
+#### 🤖 Execução Automática
 
 Os testes são executados automaticamente em cada:
-- Push para a branch `main`
-- Pull Request para a branch `main`
+- **Push** para a branch `main`
+- **Pull Request** para a branch `main`
 
-#### Manual
+#### 🔧 Execução Manual
 
 1. Acesse a aba **Actions** no repositório do GitHub
 2. Selecione o workflow **"Run the test collection of the Serve REST API with newman"**
 3. Clique em **"Run workflow"**
-4. Selecione a branch desejada
-5. Clique em **"Run workflow"**
+4. Selecione a branch desejada (padrão: `main`)
+5. Clique em **"Run workflow"** novamente para confirmar
 
 ---
 
