@@ -124,9 +124,9 @@ testes-api-postman-newman/
 ```
 ---
 
-## 🧪 Cobertura de Testes
+## 📊 Cobertura de Testes
 
-### Coleção API ServeRest ADM
+### 👩‍💻 Coleção API ServeRest ADM
 
 | Endpoint | Métodos | Cenários | Testes |
 |----------|---------|----------|--------|
@@ -140,11 +140,11 @@ testes-api-postman-newman/
 | `/carrinhos/concluir-compra` | DELETE | Tentativa de conclusão após cancelamento | 8 |
 | `/carrinhos/cancelar-compra` | DELETE | Cancelamento com reabastecimento de estoque | 8 |
 
-**Total: 20 requisições | 104 testes executados | 127 assertions**
+📈 **Total: 20 requisições | 104 testes executados | 127 assertions**
 
 ---
 
-### Coleção API ServeRest User
+### 👤 Coleção API ServeRest User
 
 | Endpoint | Métodos | Cenários | Testes |
 |----------|---------|----------|--------|
@@ -158,33 +158,33 @@ testes-api-postman-newman/
 | `/carrinhos/concluir-compra` | DELETE | Tentativa de conclusão após cancelamento | 8 |
 | `/carrinhos/cancelar-compra` | DELETE | Cancelamento com reabastecimento de estoque | 8 |
 
-**Total: 18 requisições | 92 testes executados | 113 assertions**
+📈 **Total: 18 requisições | 92 testes executados | 113 assertions**
 
 ---
 
-### Tipos de Validações
+### 🚦 Tipos de Validações
 
-- ✅ Status codes (200, 201, 400, 401, 404 e etc.)
-- ✅ Headers (Authorization, Content-Type, Accept e etc.)
-- ✅ Estrutura do corpo de resposta
-- ✅ Validação de JSON Schema
-- ✅ Validação de lógica de negócios
-- ✅ Os dados retornados na resposta das requisições
-- ✅ As mensagens de sucesso retornadas nas respostas das requisições
-- ✅ As mensagens de erro retornadas nas respostas das requisições
-- ✅ O tempo de resposta
+- ✅ **Status codes**: 200, 201, 400, 401, 403, 404, etc.
+- ✅ **Headers**: Authorization, Content-Type, Accept, etc.
+- ✅ **Estrutura do corpo de resposta**: Validação de campos obrigatórios
+- ✅ **Validação de JSON Schema**: Conformidade com contratos definidos
+- ✅ **Validação de lógica de negócios**: Regras específicas da aplicação
+- ✅ **Dados retornados**: Precisão dos valores nas respostas
+- ✅ **Mensagens de sucesso**: Feedback correto em operações bem-sucedidas
+- ✅ **Mensagens de erro**: Validação de mensagens em cenários de falha
+- ✅ **Tempo de resposta**: Performance dos endpoints
 
 ---
 
-### 🔑 Destaques
+### 🚩 Destaques da Cobertura
 
-**Cobertura Geral:**
+**Métricas Consolidadas:**
 - 📊 **38 requisições totais** (20 Admin + 18 User)
 - ✅ **196 testes executados** (104 Admin + 92 User)
 - ✅ **240 assertions totais** (127 Admin + 113 User)
 - 🎯 **100% de taxa de sucesso** em ambas as collections
 
-**Diferenças entre Admin e User:**
+**Diferenças entre Perfis:**
 - ✅ **Admin**: Autorizado para POST, PUT, DELETE em `/produtos` (Status 200/201)
 - ❌ **User**: Bloqueado para POST, PUT, DELETE em `/produtos` (Status 403 - "Rota exclusiva para administradores")
 - 🔒 **6 cenários de autorização** validados com sucesso
