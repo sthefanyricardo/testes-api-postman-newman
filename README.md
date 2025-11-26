@@ -120,7 +120,7 @@ testes-api-postman-newman/
 ├── environment/                                  # Arquivos .json com variáveis de ambiente (URLs).
 │   └── serve_rest.postman_environment.json       # Variáveis de ambiente
 │
-└── README.md
+└── README.md                                     # Este arquivo
 ```
 ---
 
@@ -131,11 +131,11 @@ testes-api-postman-newman/
 | Endpoint | Métodos | Cenários | Testes |
 |----------|---------|----------|--------|
 | `/login` | POST | Login com credenciais de admin | 6 |
-| `/usuarios` | GET, POST | Listagem de usuários (17 usuários), Cadastro de admin e usuário auxiliar | 10 |
+| `/usuarios` | GET, POST | Listagem de usuários, Cadastro de admin e usuário auxiliar | 10 |
 | `/usuarios/{_id}` | GET, PUT, DELETE | Busca por ID, Edição de usuário auxiliar, Exclusão de usuário auxiliar | 13 |
-| `/produtos` | GET, POST | Listagem de produtos (10 produtos), Cadastro de 2 produtos (autorizado) | 17 |
+| `/produtos` | GET, POST | Listagem de produtos, Cadastro de 2 produtos (autorizado) | 17 |
 | `/produtos/{_id}` | GET, PUT, DELETE | Busca de 2 produtos específicos, Edição de produto (autorizado), Exclusão de produto (autorizado) | 20 |
-| `/carrinhos` | GET, POST | Listagem de carrinhos ativos (2 carrinhos), Criação de carrinho com 398 unidades | 18 |
+| `/carrinhos` | GET, POST | Listagem de carrinhos ativos e Criação de carrinho | 18 |
 | `/carrinhos/{_id}` | GET | Busca de carrinho específico com validação de cálculos | 14 |
 | `/carrinhos/concluir-compra` | DELETE | Tentativa de conclusão após cancelamento | 8 |
 | `/carrinhos/cancelar-compra` | DELETE | Cancelamento com reabastecimento de estoque | 8 |
@@ -149,11 +149,11 @@ testes-api-postman-newman/
 | Endpoint | Métodos | Cenários | Testes |
 |----------|---------|----------|--------|
 | `/login` | POST | Login com credenciais de usuário comum | 6 |
-| `/usuarios` | GET, POST | Listagem de usuários (17 usuários), Cadastro de user e usuário auxiliar | 10 |
+| `/usuarios` | GET, POST | Listagem de usuários, Cadastro de user e usuário auxiliar | 10 |
 | `/usuarios/{_id}` | GET, PUT, DELETE | Busca por ID, Edição de usuário auxiliar, Exclusão de usuário auxiliar | 13 |
-| `/produtos` | GET, POST | Listagem de produtos (10 produtos), **Tentativa de cadastro (403 Forbidden)** | 11 |
+| `/produtos` | GET, POST | Listagem de produtos, **Tentativa de cadastro (403 Forbidden)** | 11 |
 | `/produtos/{_id}` | GET, PUT, DELETE | Busca de produto específico, **Tentativa de edição (403 Forbidden)**, **Tentativa de exclusão (403 Forbidden)** | 22 |
-| `/carrinhos` | GET, POST | Listagem de carrinhos ativos (2 carrinhos), Criação de carrinho | 18 |
+| `/carrinhos` | GET, POST | Listagem de carrinhos ativos e Criação de carrinho | 18 |
 | `/carrinhos/{_id}` | GET | Busca de carrinho específico com validação de cálculos | 14 |
 | `/carrinhos/concluir-compra` | DELETE | Tentativa de conclusão após cancelamento | 8 |
 | `/carrinhos/cancelar-compra` | DELETE | Cancelamento com reabastecimento de estoque | 8 |
