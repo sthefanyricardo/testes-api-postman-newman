@@ -10,18 +10,20 @@
 
 - [Sobre o Projeto](#-sobre-o-projeto)
 - [Funcionalidades](#-funcionalidades)
-- [Tecnologias e Ferramentas](#-tecnologias-e-ferramentas)
+- [Tecnologias e Ferramentas](#️-tecnologias-e-ferramentas)
 - [Estrutura do Projeto](#-estrutura-do-projeto)
 - [Cobertura de Testes](#-cobertura-de-testes)
-- [Roadmap](#-roadmap)
-- [Pipeline CI/CD](#-pipeline-cicd)
+- [Roadmap](#️-roadmap)
+- [Pipeline CI/CD](#️-pipeline-cicd)
 - [Pré-requisitos](#-pré-requisitos)
 - [Instalação](#-instalação)
-- [Como Executar](#-como-executar)
+- [Como Executar](#️-como-executar)
 - [Relatórios](#-relatórios)
+- [Contribuindo](#-contribuindo)
 - [Licença](#-licença)
 - [Agradecimentos](#-agradecimentos)
 - [Contato](#-contato)
+- [Links Úteis](#-links-úteis)
 
 ---
 
@@ -58,10 +60,10 @@ Este projeto utiliza a [**ServeRest API**](https://serverest.dev/), uma API REST
 
 - **Testes Funcionais**: Validação de endpoints, status codes, headers e payloads
 - **Testes de Contrato**: Validação de JSON schema com a biblioteca Ajv
-- **Testes Negativos**: Validação de cenários de erro
-- **Testes de Segurança**: Validação de autenticação e autorização
+- **Testes Negativos**: Validação de cenários de erro e edge cases
+- **Testes de Segurança**: Validação de autenticação e autorização (Admin vs User)
 - **Testes de Integração**: Fluxos completos entre múltiplos endpoints
-- **Testes de Performance**: Medição de tempo de resposta
+- **Testes de Performance**: Medição e validação de tempo de resposta
 
 ### Recursos Técnicos
 
@@ -70,6 +72,7 @@ Este projeto utiliza a [**ServeRest API**](https://serverest.dev/), uma API REST
 - 🌐 **Deploy Automático**: Publicação de relatórios no GitHub Pages
 - 🔍 **Variáveis de Ambiente**: Gestão de configurações por ambiente
 - 📝 **Documentação Viva**: Collections como documentação executável
+- 🔒 **Testes de Permissão**: Validação de rotas exclusivas para administradores
 
 ---
 
@@ -82,7 +85,6 @@ Este projeto utiliza a [**ServeRest API**](https://serverest.dev/), uma API REST
 | [Node.js](https://nodejs.org/) | ≥14.0.0 | Ambiente de execução e gerenciamento de dependências para Newman. |
 | [Newman](https://www.npmjs.com/package/newman) | Latest | Executor de linha de comando para as coleções do Postman, incluindo a geração de relatorios. |
 | [Postman](https://www.postman.com/) | Latest | Criação e organização das coleções de requisições, variáveis de ambiente e scripts de teste (com JavaScript). |
-| [Collections no Postman](https://web.postman.co/workspace/bd80135c-7abe-4289-a106-935b4fb06bb9) | - | Coleções de requisições, variáveis de ambiente e scripts de teste (com JavaScript). |
 | [GitHub Actions](https://github.com/features/actions) | - | Pipelines de CI/CD |
 
 ### Reports / Relatórios
@@ -91,6 +93,10 @@ Este projeto utiliza a [**ServeRest API**](https://serverest.dev/), uma API REST
 | [newman-reporter-htmlextra](https://www.npmjs.com/package/newman-reporter-htmlextra) | Latest | Geração de relatórios HTML detalhados e amigáveis. |
 | [newman-reporter-html](https://www.npmjs.com/package/newman-reporter-html) | Latest | Geração de relatórios HTML padrão. |
 | [newman-reporter-csv](https://www.npmjs.com/package/newman-reporter-csv) | Latest | Geração de relatórios em formato CSV |
+
+### Collections do Postman
+
+Acesse o workspace público com todas as coleções: [**Postman Workspace**](https://web.postman.co/workspace/bd80135c-7abe-4289-a106-935b4fb06bb9)
 
 ---
 
@@ -105,7 +111,7 @@ testes-api-postman-newman/
 │   └── workflows/
 │       └── main.yml                              # Configuração do pipeline CI/CD (GitHub Actions).
 │   └── templates/
-│       └── index.html                              # Configuração da página index para o deploy no GitHUb Pages
+│       └── index.html                              # Template da página index para GitHub Pages
 │
 ├── collections/                                  # Arquivos de collection.json 
 │   ├── serve_rest_adm.postman_collection.json    # Coleção de testes - Perfil Admin
