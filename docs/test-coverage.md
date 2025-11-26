@@ -5,7 +5,7 @@
 
 </div>
 
-## 🎯 Resumo Executivo
+## 🎯 Descrição
 
 Este documento apresenta a cobertura completa dos testes automatizados realizados na API ServeREST utilizando Postman/Newman.
 
@@ -958,4 +958,5 @@ A cobertura de testes da API ServeREST está **completa e robusta**, com:
 **100% de cobertura | 0% de falhas | ⚡ Performance excelente**
 
 </div>
+
 
