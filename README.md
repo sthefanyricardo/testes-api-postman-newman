@@ -473,6 +473,45 @@ Se os testes passarem, os relatórios são publicados automaticamente no GitHub 
   
 ---
 
+## 🤝 Contribuindo
+
+Contribuições são muito bem-vindas! Para contribuir com este projeto:
+
+### Como Contribuir
+
+1. **Fork** o projeto
+2. **Crie** uma branch para sua feature:
+   ```bash
+   git checkout -b feature/MinhaNovaFeature
+   ```
+3. **Commit** suas mudanças:
+   ```bash
+   git commit -m 'Add: nova funcionalidade X'
+   ```
+4. **Push** para a branch:
+   ```bash
+   git push origin feature/MinhaNovaFeature
+   ```
+5. **Abra** um Pull Request
+
+### Diretrizes
+
+- ✅ Siga os padrões de código existentes
+- ✅ Adicione testes para novas funcionalidades
+- ✅ Atualize a documentação conforme necessário
+- ✅ Mantenha os commits pequenos e focados
+- ✅ Descreva claramente as mudanças no PR
+
+### Reportar Bugs
+
+Encontrou um bug? Abra uma [issue](https://github.com/sthefanyricardo/testes-api-postman-newman/issues) com:
+- Descrição clara do problema
+- Passos para reproduzir
+- Comportamento esperado vs obtido
+- Versões (Node.js, Newman, SO)
+  
+---
+
 ## 🙏 Agradecimentos
 
 Agradecimentos especiais a:
