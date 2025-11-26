@@ -124,29 +124,37 @@ testes-api-postman-newman/
 
 | Endpoint | Métodos | Cenários | Testes |
 |----------|---------|----------|--------|
-| `/login` | POST | - | - |
-| `/usuarios` | GET, POST | - |  - |
-| `/usuarios/{_id}` | GET, PUT, DELETE | - | - |
-| `/produtos` | GET, POST | - | - |
-| `/produtos/{_id}` | GET, PUT, DELETE | - | - |
-| `/carrinhos` | GET, POST | - | - |
-| `/carrinhos/{_id}` | GET | - | - |
-| `/carrinhos/concluir-compra` | DELETE | - | - |
-| `/carrinhos/cancelar-compra` | DELETE | - | - |
+| `/login` | POST | Login com credenciais de admin | 6 |
+| `/usuarios` | GET, POST | Listagem de usuários (17 usuários), Cadastro de admin e usuário auxiliar | 10 |
+| `/usuarios/{_id}` | GET, PUT, DELETE | Busca por ID, Edição de usuário auxiliar, Exclusão de usuário auxiliar | 13 |
+| `/produtos` | GET, POST | Listagem de produtos (10 produtos), Cadastro de 2 produtos (autorizado) | 17 |
+| `/produtos/{_id}` | GET, PUT, DELETE | Busca de 2 produtos específicos, Edição de produto (autorizado), Exclusão de produto (autorizado) | 20 |
+| `/carrinhos` | GET, POST | Listagem de carrinhos ativos (2 carrinhos), Criação de carrinho com 398 unidades | 18 |
+| `/carrinhos/{_id}` | GET | Busca de carrinho específico com validação de cálculos | 14 |
+| `/carrinhos/concluir-compra` | DELETE | Tentativa de conclusão após cancelamento | 8 |
+| `/carrinhos/cancelar-compra` | DELETE | Cancelamento com reabastecimento de estoque | 8 |
+
+**Total: 20 requisições | 104 testes executados | 127 assertions**
+
+---
 
 ### Coleção API ServeRest User
 
 | Endpoint | Métodos | Cenários | Testes |
 |----------|---------|----------|--------|
-| `/login` | POST | - | - |
-| `/usuarios` | GET, POST | - |  - |
-| `/usuarios/{_id}` | GET, PUT, DELETE | - | - |
-| `/produtos` | GET | - | - |
-| `/produtos/{_id}` | GET | - | - |
-| `/carrinhos` | GET, POST | - | - |
-| `/carrinhos/{_id}` | GET | - | - |
-| `/carrinhos/concluir-compra` | DELETE | - | - |
-| `/carrinhos/cancelar-compra` | DELETE | - | - |
+| `/login` | POST | Login com credenciais de usuário comum | 6 |
+| `/usuarios` | GET, POST | Listagem de usuários (17 usuários), Cadastro de user e usuário auxiliar | 10 |
+| `/usuarios/{_id}` | GET, PUT, DELETE | Busca por ID, Edição de usuário auxiliar, Exclusão de usuário auxiliar | 13 |
+| `/produtos` | GET, POST | Listagem de produtos (10 produtos), **Tentativa de cadastro (403 Forbidden)** | 11 |
+| `/produtos/{_id}` | GET, PUT, DELETE | Busca de produto específico, **Tentativa de edição (403 Forbidden)**, **Tentativa de exclusão (403 Forbidden)** | 22 |
+| `/carrinhos` | GET, POST | Listagem de carrinhos ativos (2 carrinhos), Criação de carrinho | 18 |
+| `/carrinhos/{_id}` | GET | Busca de carrinho específico com validação de cálculos | 14 |
+| `/carrinhos/concluir-compra` | DELETE | Tentativa de conclusão após cancelamento | 8 |
+| `/carrinhos/cancelar-compra` | DELETE | Cancelamento com reabastecimento de estoque | 8 |
+
+**Total: 18 requisições | 92 testes executados | 113 assertions**
+
+---
 
 ### Tipos de Validações
 
@@ -159,6 +167,21 @@ testes-api-postman-newman/
 - ✅ As mensagens de sucesso retornadas nas respostas das requisições
 - ✅ As mensagens de erro retornadas nas respostas das requisições
 - ✅ O tempo de resposta
+
+---
+
+### 🔑 Destaques
+
+**Cobertura Geral:**
+- 📊 **38 requisições totais** (20 Admin + 18 User)
+- ✅ **196 testes executados** (104 Admin + 92 User)
+- ✅ **240 assertions totais** (127 Admin + 113 User)
+- 🎯 **100% de taxa de sucesso** em ambas as collections
+
+**Diferenças entre Admin e User:**
+- ✅ **Admin**: Autorizado para POST, PUT, DELETE em `/produtos` (Status 200/201)
+- ❌ **User**: Bloqueado para POST, PUT, DELETE em `/produtos` (Status 403 - "Rota exclusiva para administradores")
+- **6 cenários de autorização** validados com sucesso
 
 ---
 
