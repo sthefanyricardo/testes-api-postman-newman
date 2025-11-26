@@ -7,7 +7,7 @@
 [![Assertions](https://img.shields.io/badge/assertions-240-blue)](test-coverage.md)
 [![Performance](https://img.shields.io/badge/avg_response-53ms-yellow)](test-coverage.md)
 
-> **Última Atualização:** 24 de novembro de 2024  
+> **Última Atualização:** 26 de novembro de 2025
 > **Versão:** 1.0.0  
 > **Total de Endpoints Testados:** 16  
 > **Cobertura Geral:** 100% ✅
@@ -598,4 +598,4 @@ O projeto apresenta uma **excelente cobertura de testes** (95%), com validaçõe
 
 **Repositório:** [testes-api-postman-newman](https://github.com/sthefanyricardo/testes-api-postman-newman)
 
-
+> Para documentação completa, consulte: [Test Coverage Report](test-coverage.md)
