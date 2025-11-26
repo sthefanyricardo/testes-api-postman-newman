@@ -274,8 +274,7 @@ graph LR
 - **npm**: v6.0.0 ou superior (incluído com Node.js)
 - **Git**: Para clonar o repositório ([Download Git](https://git-scm.com/))
 
-### ✅ Verificar Instalações
-
+#### Verificar Instalações:
 ```bash
 # Verificar Node.js
 node --version
@@ -287,7 +286,7 @@ npm --version
 git --version
 ```
 
-**Saídas esperadas:**
+#### Saídas esperadas:
 ```
 node v14.x.x (ou superior)
 npm v6.x.x (ou superior)
@@ -322,15 +321,15 @@ node --version
 npm --version
 ```
 
-### 3️⃣ Instale o Newman e Reporters
+### 3️⃣ Instale o Newman e Reports
 
-#### Opção A: Instalação Global (Recomendado)
+#### Opção A: Instalação Global
 
 ```bash
 # Instalar Newman
 npm install -g newman
 
-# Instalar Reporters
+# Instalar Reports
 npm install -g newman-reporter-htmlextra
 npm install -g newman-reporter-html
 npm install -g newman-reporter-csv
@@ -342,7 +341,7 @@ npm install -g newman-reporter-csv
 # Inicializar projeto
 npm init -y
 
-# Instalar Newman e Reporters
+# Instalar Newman e Reports
 npm install newman newman-reporter-htmlextra newman-reporter-html newman-reporter-csv --save-dev
 ```
 
@@ -360,7 +359,7 @@ newman --version
 
 ### 🖥️ Execução Local
 
-#### Executar Coleção Individual
+#### Executar coleção individual
 
 **Coleção ADM (Administrador):**
 
@@ -378,14 +377,23 @@ newman run collections/serve_rest_user.postman_collection.json \
   -r cli,htmlextra
 ```
 
-#### Executar com Múltiplos Relatórios
+#### Executar com múltiplos relatórios
 
 ```bash
 # Criar diretório para relatórios
 mkdir -p newman_reports
 
-# Executar com todos os reporters
+# Executar coleção ADM com todos os reports
 newman run collections/serve_rest_adm.postman_collection.json \
+  -e environment/serve_rest.postman_environment.json \
+  -r cli,htmlextra,html,csv,json \
+  --reporter-htmlextra-export newman_reports/report-adm-htmlextra.html \
+  --reporter-html-export newman_reports/report-adm-html.html \
+  --reporter-csv-export newman_reports/report-adm.csv \
+  --reporter-json-export newman_reports/report-adm.json
+
+# Executar coleção User com todos os reports
+newman run collections/serve_rest_user.postman_collection.json \
   -e environment/serve_rest.postman_environment.json \
   -r cli,htmlextra,html,csv,json \
   --reporter-htmlextra-export newman_reports/report-adm-htmlextra.html \
@@ -394,7 +402,7 @@ newman run collections/serve_rest_adm.postman_collection.json \
   --reporter-json-export newman_reports/report-adm.json
 ```
 
-#### Executar com Opções Avançadas
+#### Executar com opções avançadas
 
 ```bash
 # Com múltiplas iterações (executar 3 vezes)
@@ -425,13 +433,13 @@ newman run collections/serve_rest_adm.postman_collection.json \
 
 ### ☁️ Execução via GitHub Actions
 
-#### 🤖 Execução Automática
+#### 🤖 Execução automática
 
 Os testes são executados automaticamente em cada:
 - **Push** para a branch `main`
 - **Pull Request** para a branch `main`
 
-#### 🔧 Execução Manual
+#### 🔧 Execução manual
 
 1. Acesse a aba **Actions** no repositório do GitHub
 2. Selecione o workflow **"Run the test collection of the Serve REST API with newman"**
