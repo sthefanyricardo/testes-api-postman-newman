@@ -20,7 +20,6 @@
 - [Como Executar](#️-como-executar)
 - [Relatórios](#-relatórios)
 - [Contribuindo](#-contribuindo)
-- [Licença](#-licença)
 - [Agradecimentos](#-agradecimentos)
 - [Contato](#-contato)
 - [Links Úteis](#-links-úteis)
@@ -42,7 +41,7 @@ O projeto foi desenvolvido como parte do curso "[Dominando Postman: Do Teste Man
 - ✅ Publicar relatórios automaticamente no **GitHub Pages**
 - ✅ Aplicar boas práticas de QA e DevOps
 
-### API ServeRest
+### 🧠 API ServeRest
 
 Este projeto utiliza a [**ServeRest API**](https://serverest.dev/), uma API REST gratuita que simula uma loja virtual, desenvolvida por [Paulo Gonçalves](https://github.com/PauloGoncalvesBH) especificamente para servir como material de estudos em testes de API.
 
@@ -224,18 +223,17 @@ testes-api-postman-newman/
 
 O arquivo `.github/workflows/main.yml` contém toda a configuração do pipeline. O pipeline é executado automaticamente em cada `push` ou `pull request` para a branch `main`. 
 
-#### Etapas do Pipeline
+### 🔄 Etapas do Pipeline
 1. **Setup**: Configuração do ambiente Node.js
-2. **Install**: Instalação do Newman e reporters
-3. **Test**: Execução das coleções de teste
-   - Coleção ADM (administrador)
-   - Coleção User (usuário padrão)
-4. **Report**: Geração de múltiplos formatos de relatório
-5. **Upload**: Armazenamento como artefatos do GitHub Actions
-6. **Deploy**: Publicação automática no GitHub Pages (quando testes passam)
-
+2. **Install**: Instalação do Newman e reports necessários
+3. **Test**: Execução sequencial das coleções de teste
+   - Coleção ADM (perfil administrador)
+   - Coleção User (perfil usuário padrão)
+4. **Report**: Geração de múltiplos formatos de relatório (HTML, CSV, JSON)
+5. **Upload**: Armazenamento como artefatos do GitHub Actions (sempre executado)
+6. **Deploy**: Publicação automática no GitHub Pages (apenas quando testes passam)
+   
 ### Fluxo de Execução dos Testes
-
 ```mermaid
 graph LR
     A[Postman Collections] --> B[Newman CLI]
@@ -252,7 +250,6 @@ graph LR
 ```
 
 ### Fluxo de Execução do Pipeline de CI/CD
-
 ```mermaid
 graph LR
     A[Push/PR on branch Main] --> B[Pipeline - GitHub Actions]
