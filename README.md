@@ -31,6 +31,8 @@
 - [Tecnologias e Ferramentas](#️-tecnologias-e-ferramentas)
 - [Estrutura do Projeto](#-estrutura-do-projeto)
 - [Cobertura de Testes](#-cobertura-de-testes)
+- [Cobertura de Testes Detalhada](docs/test-coverage.md)
+- [Cobertura de Testes Resumo Executivo](docs/test-coverage-summary.md)
 - [Roadmap](#️-roadmap)
 - [Pipeline CI/CD](#️-pipeline-cicd)
 - [Pré-requisitos](#-pré-requisitos)
@@ -136,6 +138,10 @@ testes-api-postman-newman/
 │
 ├── environment/                                  # Arquivos .json com variáveis de ambiente (URLs)
 │   └── serve_rest.postman_environment.json       # Configurações de ambiente
+│
+├── docs/                                        # Cobertura de Testes - Relatórios completos
+│   └── test-coverage.md                         # Cobertura Detalhada de Testes
+│   └── test-coverage-summary.md                 # Resumo Executivo da Cobertura
 │
 └── README.md                                     # Este arquivo
 ```
