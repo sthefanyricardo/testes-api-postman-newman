@@ -50,7 +50,7 @@ Este repositório demonstra a implementação completa de **testes automatizados
 
 ### 📝 Objetivo
 
-O projeto foi desenvolvido como parte do curso "[Dominando Postman: Do Teste Manual a Performance APIs](https://www.udemy.com/course/dominando-postman-2023-testando-e-automatizado-apis)" na Udemy e no Qualiters Club, ministrado pela Priscila Caimi no Qualiters Club, e tem como objetivo:
+O projeto foi desenvolvido como parte do curso "[Dominando Postman: Do Teste Manual a Performance APIs](https://www.udemy.com/course/dominando-postman-2023-testando-e-automatizado-apis)" na Udemy e no Qualiters Club, ministrado pela Priscila Caimi, e tem como objetivo:
 
 - ✅ Demonstrar proficiência em **testes funcionais, automatizados e de performance** de APIs REST
 - ✅ Automatizar a execução de testes utilizando **Newman CLI**
@@ -130,12 +130,12 @@ testes-api-postman-newman/
 │   └── templates/
 │       └── index.html                              # Template da página index para GitHub Pages
 │
-├── collections/                                  # Arquivos de collection.json 
+├── collections/                                  # Coleções do Postman - Arquivos de collection*.json 
 │   ├── serve_rest_adm.postman_collection.json    # Coleção de testes - Perfil Admin
 │   └── serve_rest_user.postman_collection.json   # Coleção de testes - Perfil Usuário
 │
-├── environment/                                  # Arquivos .json com variáveis de ambiente (URLs).
-│   └── serve_rest.postman_environment.json       # Variáveis de ambiente
+├── environment/                                  # Arquivos .json com variáveis de ambiente (URLs)
+│   └── serve_rest.postman_environment.json       # Configurações de ambiente
 │
 └── README.md                                     # Este arquivo
 ```
@@ -220,12 +220,8 @@ testes-api-postman-newman/
 ### 🚧 Em Desenvolvimento
 
 - [ ] Desenvolvimento de testes automatizados de API com o Robot Framework
-- [ ] Cobertura completa dos testes cenarios positivos, negativos e alternativos com o Robot Framework
+- [ ] Cobertura completa dos testes cenários positivos, negativos e alternativos com o Robot Framework
 - [ ] Testes de contrato com validação de JSON Schema no Robot Framework
-- [ ] Dashboard de métricas em tempo real
-- [ ] Pipeline CI/CD com GitHub Actions
-- [ ] Deploy automático no GitHub Pages
-- [ ] Testes de contrato com Python ou Pact
 
 ### 📅 Planejado
 
@@ -395,7 +391,7 @@ newman run collections/serve_rest_user.postman_collection.json \
   -r cli,htmlextra
 ```
 
-#### Executar com múltiplos relatórios
+#### Executar com geração de múltiplos relatórios
 
 ```bash
 # Criar diretório para relatórios
@@ -414,10 +410,10 @@ newman run collections/serve_rest_adm.postman_collection.json \
 newman run collections/serve_rest_user.postman_collection.json \
   -e environment/serve_rest.postman_environment.json \
   -r cli,htmlextra,html,csv,json \
-  --reporter-htmlextra-export newman_reports/report-adm-htmlextra.html \
-  --reporter-html-export newman_reports/report-adm-html.html \
-  --reporter-csv-export newman_reports/report-adm.csv \
-  --reporter-json-export newman_reports/report-adm.json
+  --reporter-htmlextra-export newman_reports/report-user-htmlextra.html \
+  --reporter-html-export newman_reports/report-user-html.html \
+  --reporter-csv-export newman_reports/report-user.csv \
+  --reporter-json-export newman_reports/report-user.json
 ```
 
 #### Executar com opções avançadas
