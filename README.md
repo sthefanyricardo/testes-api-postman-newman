@@ -188,7 +188,6 @@ testes-api-postman-newman/
 
 > 📖 Para documentação completa, consulte: [Cobertura de testes detalhada](docs/test-coverage.md) ou [Cobertura de testes resumo executivo](docs/test-coverage.md)
 
----
 
 ### 🚦 Tipos de Validações
 
@@ -202,7 +201,6 @@ testes-api-postman-newman/
 - ✅ **Mensagens de erro**: Validação de mensagens em cenários de falha
 - ✅ **Tempo de resposta**: Performance dos endpoints
 
----
 
 ### 🚩 Destaques da Cobertura
 
