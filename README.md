@@ -181,7 +181,7 @@ testes-api-postman-newman/
 **Diferenças entre Admin e User:**
 - ✅ **Admin**: Autorizado para POST, PUT, DELETE em `/produtos` (Status 200/201)
 - ❌ **User**: Bloqueado para POST, PUT, DELETE em `/produtos` (Status 403 - "Rota exclusiva para administradores")
-- **6 cenários de autorização** validados com sucesso
+- 🔒 **6 cenários de autorização** validados com sucesso
 
 ---
 
