@@ -473,12 +473,6 @@ Se os testes passarem, os relatórios são publicados automaticamente no GitHub 
   
 ---
 
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
----
-
 ## 🙏 Agradecimentos
 
 Agradecimentos especiais a:
