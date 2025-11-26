@@ -290,31 +290,32 @@
         opacity: 0.9;
         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
         }
-
+        
         .github-link a {
-        align-items: center;
-        color: #d8e4f0;
-        margin-top: 20px;
-        font-size: 0.9em;
-        font-style: italic;
-        font-family: 'MedievalSharp', cursive;
-        letter-spacing: 2px;
-        opacity: 0.9;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+          display: inline;           /* link inline, como uma frase */
+          background: transparent;   /* sem cor de fundo */
+          border: none;              /* sem borda */
+          padding: 0;                /* sem espaçamento interno */
+          margin: 0;                 /* sem margem extra */
+          box-shadow: none;          /* sem sombra */
+          overflow: visible;         /* não cortar conteúdo */
+          position: static;          /* não absoluto/relativo para evitar efeitos */
+          text-decoration: none;     /* remove sublinhado se preferir (opcional) */
+          color: inherit;            /* usa a cor do parágrafo pai (igual ao motto) */
+          font-family: inherit;      /* herda a fonte do contexto (igual ao motto) */
+          font-style: inherit;       /* herda itálico se existente */
+          letter-spacing: inherit;   /* herda espaçamento de letra */
         }
-
+        
+        /* desativa o ::before de brilho/overlay que o CSS anterior aplicava */
         .github-link a::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        transition: left 0.5s ease;
+          display: none !important;
         }
-
-        .github-link a:hover::before {
-        left: 100%;
+        
+        /* pequeno ajuste opcional entre emoji e texto */
+        .github-link a span {
+          margin-right: 0.5em; /* ou 0.6em, ajuste conforme preferir */
+          vertical-align: middle;
         }
     
         .motto {
